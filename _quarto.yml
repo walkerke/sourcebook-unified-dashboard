@@ -11,8 +11,10 @@ format:
     nav-buttons: [github]
     fillable: true
     css: www/dashboard.css
+    favicon: "www/favicon-32x32.png"
     include-in-header:
       - text: |
+          <link rel="icon" type="image/png" sizes="32x32" href="www/favicon-32x32.png">
           <script src="www/dashboard.js"></script>
 
 website:

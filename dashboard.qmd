@@ -124,23 +124,31 @@ tagList(
     div(
       class = "custom-dropdown",
       id = "cbsa-dropdown",
-      `data-value` = "richmond",
+      `data-value` = "Richmond, VA",
       tags$div(class = "dropdown-selected", "Richmond, VA"),
       tags$div(class = "dropdown-arrow", "▼"),
       tags$div(
         class = "dropdown-options",
-        tags$div(class = "dropdown-option active", `data-value` = "richmond", "Richmond, VA"),
-        tags$div(class = "dropdown-option", `data-value` = "hampton_roads", "Virginia Beach-Norfolk-Newport News, VA-NC"),
-        tags$div(class = "dropdown-option", `data-value` = "dc_metro", "Washington-Arlington-Alexandria, DC-VA-MD-WV"),
-        tags$div(class = "dropdown-option", `data-value` = "lynchburg", "Lynchburg, VA"),
-        tags$div(class = "dropdown-option", `data-value` = "charlottesville", "Charlottesville, VA"),
-        tags$div(class = "dropdown-option", `data-value` = "roanoke", "Roanoke, VA"),
-        tags$div(class = "dropdown-option", `data-value` = "harrisonburg", "Harrisonburg, VA"),
-        tags$div(class = "dropdown-option", `data-value` = "blacksburg", "Blacksburg-Christiansburg, VA")
+        tags$div(class = "dropdown-option", `data-value` = "Big Stone Gap, VA", "Big Stone Gap, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Blacksburg-Christiansburg, VA", "Blacksburg-Christiansburg, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Bluefield, WV-VA", "Bluefield, WV-VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Charlottesville, VA", "Charlottesville, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Danville, VA", "Danville, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Harrisonburg, VA", "Harrisonburg, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Kingsport-Bristol, TN-VA", "Kingsport-Bristol, TN-VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Lynchburg, VA", "Lynchburg, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Martinsville, VA", "Martinsville, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Non-Metro", "Non-Metro"),
+        tags$div(class = "dropdown-option active", `data-value` = "Richmond, VA", "Richmond, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Roanoke, VA", "Roanoke, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Staunton, VA", "Staunton, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "Virginia Beach-Norfolk-Newport News, VA-NC", "Virginia Beach-Norfolk-Newport News, VA-NC"),
+        tags$div(class = "dropdown-option", `data-value` = "Washington-Arlington-Alexandria, DC-VA-MD-WV", "Washington-Arlington-Alexandria, DC-VA-MD-WV"),
+        tags$div(class = "dropdown-option", `data-value` = "Winchester, VA-WV", "Winchester, VA-WV")
       )
     ),
     # Hidden input for compatibility
-    tags$input(type = "hidden", id = "cbsa_selector", name = "cbsa_selector", value = "richmond")
+    tags$input(type = "hidden", id = "cbsa_selector", name = "cbsa_selector", value = "Richmond, VA")
   ),
   
   # Locality Selector (JavaScript-controlled visibility)
@@ -152,29 +160,39 @@ tagList(
     div(
       class = "custom-dropdown",
       id = "locality-dropdown",
-      `data-value` = "richmond_city",
+      `data-value` = "Richmond City",
       tags$div(class = "dropdown-selected", "Richmond City"),
       tags$div(class = "dropdown-arrow", "▼"),
       tags$div(
         class = "dropdown-options",
-        tags$div(class = "dropdown-option active", `data-value` = "richmond_city", "Richmond City"),
-        tags$div(class = "dropdown-option", `data-value` = "henrico", "Henrico County"),
-        tags$div(class = "dropdown-option", `data-value` = "chesterfield", "Chesterfield County"),
-        tags$div(class = "dropdown-option", `data-value` = "virginia_beach", "Virginia Beach City"),
-        tags$div(class = "dropdown-option", `data-value` = "norfolk", "Norfolk City"),
-        tags$div(class = "dropdown-option", `data-value` = "chesapeake", "Chesapeake City"),
-        tags$div(class = "dropdown-option", `data-value` = "newport_news", "Newport News City"),
-        tags$div(class = "dropdown-option", `data-value` = "hampton", "Hampton City"),
-        tags$div(class = "dropdown-option", `data-value` = "portsmouth", "Portsmouth City"),
-        tags$div(class = "dropdown-option", `data-value` = "alexandria", "Alexandria City"),
-        tags$div(class = "dropdown-option", `data-value` = "fairfax", "Fairfax County"),
-        tags$div(class = "dropdown-option", `data-value` = "prince_william", "Prince William County"),
-        tags$div(class = "dropdown-option", `data-value` = "loudoun", "Loudoun County"),
-        tags$div(class = "dropdown-option", `data-value` = "arlington", "Arlington County")
+        style = "max-height: 300px; overflow-y: auto;",
+        tags$div(class = "dropdown-option", `data-value` = "Accomack County", "Accomack County"),
+        tags$div(class = "dropdown-option", `data-value` = "Albemarle County", "Albemarle County"),
+        tags$div(class = "dropdown-option", `data-value` = "Alexandria City", "Alexandria City"),
+        tags$div(class = "dropdown-option", `data-value` = "Arlington County", "Arlington County"),
+        tags$div(class = "dropdown-option", `data-value` = "Charlottesville City", "Charlottesville City"),
+        tags$div(class = "dropdown-option", `data-value` = "Chesapeake City", "Chesapeake City"),
+        tags$div(class = "dropdown-option", `data-value` = "Chesterfield County", "Chesterfield County"),
+        tags$div(class = "dropdown-option", `data-value` = "Fairfax City", "Fairfax City"),
+        tags$div(class = "dropdown-option", `data-value` = "Fairfax County", "Fairfax County"),
+        tags$div(class = "dropdown-option", `data-value` = "Hampton City", "Hampton City"),
+        tags$div(class = "dropdown-option", `data-value` = "Hanover County", "Hanover County"),
+        tags$div(class = "dropdown-option", `data-value` = "Henrico County", "Henrico County"),
+        tags$div(class = "dropdown-option", `data-value` = "Loudoun County", "Loudoun County"),
+        tags$div(class = "dropdown-option", `data-value` = "Newport News City", "Newport News City"),
+        tags$div(class = "dropdown-option", `data-value` = "Norfolk City", "Norfolk City"),
+        tags$div(class = "dropdown-option", `data-value` = "Portsmouth City", "Portsmouth City"),
+        tags$div(class = "dropdown-option", `data-value` = "Prince William County", "Prince William County"),
+        tags$div(class = "dropdown-option active", `data-value` = "Richmond City", "Richmond City"),
+        tags$div(class = "dropdown-option", `data-value` = "Roanoke City", "Roanoke City"),
+        tags$div(class = "dropdown-option", `data-value` = "Stafford County", "Stafford County"),
+        tags$div(class = "dropdown-option", `data-value` = "Suffolk City", "Suffolk City"),
+        tags$div(class = "dropdown-option", `data-value` = "Virginia Beach City", "Virginia Beach City"),
+        tags$div(class = "dropdown-option", `data-value` = "York County", "York County")
       )
     ),
     # Hidden input for compatibility
-    tags$input(type = "hidden", id = "locality_selector", name = "locality_selector", value = "richmond_city")
+    tags$input(type = "hidden", id = "locality_selector", name = "locality_selector", value = "Richmond City")
   ),
   
   # Navigation Section Divider
@@ -332,6 +350,21 @@ tagList(
         href = "#instability-homelessness", 
         `data-subpage` = "instability-homelessness")
     )
+  ),
+  
+  # Economic Impact Calculators Section
+  accordion_panel(
+    "Economic Impact Calculators",
+    icon = bsicons::bs_icon("calculator"),
+    div(
+      a("New Construction Calculator", 
+        href = "#calculators-new-construction", 
+        `data-subpage` = "calculators-new-construction"),
+      br(),
+      a("Renovation Calculator", 
+        href = "#calculators-renovation", 
+        `data-subpage` = "calculators-renovation")
+    )
   )
   ) # Close accordion
 ) # Close tagList
@@ -393,7 +426,8 @@ div(
           tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Homeownership: "), "Sales, prices, and mortgage information"),
           tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Rental: "), "Rent levels, vacancy, and assisted housing"),
           tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Affordability: "), "Cost burden and housing gaps"),
-          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Instability: "), "Homelessness data")
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Instability: "), "Homelessness data"),
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Economic Impact Calculators: "), "Tools to estimate job and economic growth")
         ),
         p(style = "margin-top: 1rem; font-style: italic;", "Select your geographic area at the top of the sidebar, then explore the data topics that interest you most.")
       )
@@ -415,7 +449,6 @@ div(
     
     div(
       class = "app-container",
-      div(class = "loading-overlay loading", "Loading dashboard..."),
       tags$iframe(
         `data-base-url` = "https://0197555d-a8b9-af9f-94bd-37957358c5d6.share.connect.posit.cloud/",
         width = "100%",
@@ -452,7 +485,6 @@ div(
     
     div(
       class = "app-container",
-      div(class = "loading-overlay loading", "Loading dashboard..."),
       tags$iframe(
         `data-base-url` = "https://01975570-3565-70fc-e3e1-cff03afed391.share.connect.posit.cloud/",
         width = "100%", 
@@ -504,7 +536,6 @@ div(
     
     div(
       class = "app-container",
-      div(class = "loading-overlay loading", "Loading dashboard..."),
       tags$iframe(
         `data-base-url` = "https://example-housing-type-app.connect.posit.cloud/",
         width = "100%",
@@ -532,8 +563,650 @@ div(
         p("The data contained in Sourcebook is intended for informational, educational and research uses. The information may not be used for commercial purposes or re-marketed. Any reproduction and distribution of this information must clearly identify HousingForward Virginia and Sourcebook as the provider of the information.")
       )
     )
-  )
+  ),
   
-  # Additional content pages will be added here as we expand
+  # DEMOGRAPHICS PAGES
+  
+  # Demographics - Race and Ethnicity
+  div(
+    id = "demographics-race-ethnicity",
+    class = "content-page",
+    
+    h1("Race and Ethnicity"),
+    p("Population by race and Hispanic or Latino heritage."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-race-ethnicity.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Population estimates by race and ethnicity from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Demographics - Age
+  div(
+    id = "demographics-age",
+    class = "content-page",
+    
+    h1("Age"),
+    p("Population data by age groups."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://walkerke-dem-age.share.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Age distribution data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Demographics - Household Type  
+  div(
+    id = "demographics-household-type",
+    class = "content-page",
+    
+    h1("Household Type"),
+    p("Relationships of people living under the same roof."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-household-type.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Household composition data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Demographics - Household Size
+  div(
+    id = "demographics-household-size",
+    class = "content-page",
+    
+    h1("Household Size"),
+    p("Number of persons per household."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-household-size.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Household size distribution from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # ECONOMICS PAGES
+  
+  # Economics - Household Income
+  div(
+    id = "economics-household-income",
+    class = "content-page",
+    
+    h1("Household Income"),
+    p("Income by tenure, age, race and ethnicity."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-household-income.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Household income data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Economics - Poverty
+  div(
+    id = "economics-poverty",
+    class = "content-page",
+    
+    h1("Poverty"),
+    p("Poverty rates by age, race and ethnicity."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-poverty.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Poverty status data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Economics - Employment
+  div(
+    id = "economics-employment",
+    class = "content-page",
+    
+    h1("Employment"),
+    p("Job levels, unemployment rates, and jobs-housing ratios."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-employment.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("Bureau of Labor Statistics"),
+        p("Employment and unemployment data from federal and state labor statistics.")
+      )
+    )
+  ),
+  
+  # INVENTORY PAGES
+  
+  # Inventory - Housing Production
+  div(
+    id = "inventory-housing-production",
+    class = "content-page",
+    
+    h1("Housing Production"),
+    p("Building permits by structure type."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-housing-production.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("U.S. Census Bureau Building Permits Survey"),
+        p("New construction authorized by building permits.")
+      )
+    )
+  ),
+  
+  # Inventory - Housing Age
+  div(
+    id = "inventory-housing-age",
+    class = "content-page",
+    
+    h1("Housing Age"),
+    p("Housing stock by tenure and year built."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-housing-age.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Year structure built data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Inventory - Housing Characteristics
+  div(
+    id = "inventory-housing-characteristics",
+    class = "content-page",
+    
+    h1("Housing Characteristics"),
+    p("Physical characteristics of housing stock."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-housing-characteristics.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Housing unit characteristics from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Inventory - Overcrowding
+  div(
+    id = "inventory-overcrowding",
+    class = "content-page",
+    
+    h1("Overcrowding"),
+    p("Number of persons per room."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-overcrowding.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Occupancy characteristics from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # HOMEOWNERSHIP PAGES
+  
+  # Homeownership - Rate
+  div(
+    id = "homeownership-rate",
+    class = "content-page",
+    
+    h1("Homeownership Rate"),
+    p("Share of homeowners by age, race and ethnicity."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-homeownership-rate.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Housing tenure data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Homeownership - Sales
+  div(
+    id = "homeownership-sales",
+    class = "content-page",
+    
+    h1("Home Sales"),
+    p("For-sale prices and inventory trends."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-home-sales.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("Virginia Association of Realtors"),
+        p("Home sales and pricing data from local real estate markets.")
+      )
+    )
+  ),
+  
+  # Homeownership - HPI
+  div(
+    id = "homeownership-hpi",
+    class = "content-page",
+    
+    h1("House Price Index"),
+    p("Historic-to-present Federal Housing Finance Agency HPI."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-hpi.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("Federal Housing Finance Agency"),
+        p("House Price Index data showing price changes over time.")
+      )
+    )
+  ),
+  
+  # Homeownership - Mortgages
+  div(
+    id = "homeownership-mortgages",
+    class = "content-page",
+    
+    h1("Mortgages"),
+    p("Loan originations and denials by race and ethnicity."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-mortgages.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("Home Mortgage Disclosure Act (HMDA)"),
+        p("Mortgage lending data from the Consumer Financial Protection Bureau.")
+      )
+    )
+  ),
+  
+  # RENTAL PAGES
+  
+  # Rental - Rent
+  div(
+    id = "rental-rent",
+    class = "content-page",
+    
+    h1("Rent"),
+    p("Gross rent averages and spread."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-rent.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Gross rent data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Rental - Vacancy
+  div(
+    id = "rental-vacancy",
+    class = "content-page",
+    
+    h1("Rental Vacancy"),
+    p("Vacancy rates for rental properties."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-rental-vacancy.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Housing vacancy data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Rental - Assisted
+  div(
+    id = "rental-assisted",
+    class = "content-page",
+    
+    h1("Assisted Rentals"),
+    p("Homes with dedicated public subsidies."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-assisted-rentals.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("HUD and Virginia Housing"),
+        p("Subsidized housing data from federal and state agencies.")
+      )
+    )
+  ),
+  
+  # AFFORDABILITY PAGES
+  
+  # Affordability - Cost Burden
+  div(
+    id = "affordability-cost-burden",
+    class = "content-page",
+    
+    h1("Housing Cost Burden"),
+    p("Cost burden by income, race and ethnicity."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-cost-burden.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("American Community Survey"),
+        p("Housing cost burden data from the U.S. Census Bureau.")
+      )
+    )
+  ),
+  
+  # Affordability - Gap
+  div(
+    id = "affordability-gap",
+    class = "content-page",
+    
+    h1("Rental Housing Gap"),
+    p("Affordability of current supply by income."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-housing-gap.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("National Low Income Housing Coalition"),
+        p("Housing affordability gap analysis.")
+      )
+    )
+  ),
+  
+  # Affordability - AMI
+  div(
+    id = "affordability-ami",
+    class = "content-page",
+    
+    h1("HUD AMI Limits"),
+    p("Income limits used by affordable housing programs."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-ami-limits.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("U.S. Department of Housing and Urban Development"),
+        p("Area Median Income limits for affordable housing programs.")
+      )
+    )
+  ),
+  
+  # INSTABILITY PAGES
+  
+  # Instability - Homelessness
+  div(
+    id = "instability-homelessness",
+    class = "content-page",
+    
+    h1("Homelessness"),
+    p("Point-in-Time homelessness for Continuum of Care regions."),
+    
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-homelessness.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("U.S. Department of Housing and Urban Development"),
+        p("Point-in-Time count data from Continuum of Care regions.")
+      )
+    )
+  ),
+  
+  # ECONOMIC IMPACT CALCULATORS
+  
+  # Calculators - New Construction
+  div(
+    id = "calculators-new-construction",
+    class = "content-page",
+    
+    h1("New Construction Calculator"),
+    p("Estimate job and economic growth from new construction."),
+    p("The Virginia Center for Housing Research developed these calculators to estimate the economic impact of housing activity on local economies."),
+    
+    div(
+      class = "app-container",
+      div(class = "loading-overlay loading", "Loading calculator..."),
+      tags$iframe(
+        `data-base-url` = "https://example-new-construction-calc.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("Virginia Center for Housing Research"),
+        p("Economic impact methodology based on regional economic modeling.")
+      )
+    )
+  ),
+  
+  # Calculators - Renovation
+  div(
+    id = "calculators-renovation",
+    class = "content-page",
+    
+    h1("Renovation Calculator"),
+    p("Estimate job and economic growth from major rehab projects."),
+    p("The Virginia Center for Housing Research developed these calculators to estimate the economic impact of housing activity on local economies."),
+    
+    div(
+      class = "app-container",
+      div(class = "loading-overlay loading", "Loading calculator..."),
+      tags$iframe(
+        `data-base-url` = "https://example-renovation-calc.connect.posit.cloud/",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(class = "resources-section",
+      h3("Data Sources"),
+      div(class = "data-sources",
+        h4("Virginia Center for Housing Research"),
+        p("Economic impact methodology for renovation and rehabilitation projects.")
+      )
+    )
+  )
 )
 ```

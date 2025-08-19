@@ -8,17 +8,23 @@ class SourcebookDashboard {
       cbsa: null,
       locality: null
     };
+    this.geographyData = null;
     
     this.init();
   }
   
-  init() {
-    // Initialize from URL hash or default
-    this.parseUrlHash();
-    
-    // Set up event listeners
+  async init() {
+    // Set up event listeners first
     this.setupGeographicControls();
     this.setupNavigation();
+    
+    // Parse URL parameters after everything is setup
+    this.parseUrlHash();
+    
+    // Give DOM elements a moment to be ready, then re-parse URL
+    setTimeout(() => {
+      this.parseUrlHash();
+    }, 100);
     
     // Handle browser back/forward
     window.addEventListener('popstate', () => {
@@ -33,6 +39,7 @@ class SourcebookDashboard {
     }
   }
   
+  
   parseUrlHash() {
     const hash = window.location.hash.replace('#', '');
     if (hash && hash.includes('-')) {
@@ -43,15 +50,29 @@ class SourcebookDashboard {
     
     // Parse URL parameters for geographic settings
     const urlParams = new URLSearchParams(window.location.search);
+    console.log('URL search params:', window.location.search); // Debug
     if (urlParams.get('geo')) {
       this.geoParams.level = urlParams.get('geo');
-      this.geoParams.cbsa = urlParams.get('cbsa');
-      this.geoParams.locality = urlParams.get('locality');
+      // Decode URL-encoded values (e.g., "Fairfax+City" becomes "Fairfax City")
+      this.geoParams.cbsa = urlParams.get('cbsa') ? decodeURIComponent(urlParams.get('cbsa').replace(/\+/g, ' ')) : null;
+      this.geoParams.locality = urlParams.get('locality') ? decodeURIComponent(urlParams.get('locality').replace(/\+/g, ' ')) : null;
+      console.log('Parsed geo params:', this.geoParams); // Debug
       this.updateGeographicControls();
     }
   }
   
   setupGeographicControls() {
+    // Set initial values from hardcoded dropdowns
+    const cbsaDropdown = document.getElementById('cbsa-dropdown');
+    const localityDropdown = document.getElementById('locality-dropdown');
+    
+    if (cbsaDropdown) {
+      this.geoParams.cbsa = cbsaDropdown.getAttribute('data-value');
+    }
+    if (localityDropdown) {
+      this.geoParams.locality = localityDropdown.getAttribute('data-value');
+    }
+    
     // Custom toggle buttons
     const geoToggleButtons = document.querySelectorAll('.geo-toggle-btn');
     console.log('Found geo toggle buttons:', geoToggleButtons.length); // Debug
@@ -183,11 +204,9 @@ class SourcebookDashboard {
     
     const geoQuery = this.buildGeoQuery();
     iframe.src = baseUrl + geoQuery;
-    
-    // Show loading state
-    this.showLoading(iframe);
   }
   
+
   buildGeoQuery() {
     const params = new URLSearchParams();
     params.set('geo', this.geoParams.level);
@@ -220,11 +239,34 @@ class SourcebookDashboard {
     // Update selector visibility
     this.updateSelectorVisibility();
     
-    // Update selectors
+    // Update selectors and custom dropdowns
     if (this.geoParams.cbsa) {
       const cbsaSelect = document.getElementById('cbsa_selector');
       if (cbsaSelect) {
         cbsaSelect.value = this.geoParams.cbsa;
+      }
+      
+      // Update custom CBSA dropdown display
+      const cbsaDropdown = document.getElementById('cbsa-dropdown');
+      if (cbsaDropdown) {
+        const cbsaSelected = cbsaDropdown.querySelector('.dropdown-selected');
+        const cbsaOptions = cbsaDropdown.querySelectorAll('.dropdown-option');
+        
+        // Update selected display text
+        if (cbsaSelected) {
+          cbsaSelected.textContent = this.geoParams.cbsa;
+        }
+        
+        // Update dropdown data-value
+        cbsaDropdown.setAttribute('data-value', this.geoParams.cbsa);
+        
+        // Update active option
+        cbsaOptions.forEach(option => {
+          option.classList.remove('active');
+          if (option.getAttribute('data-value') === this.geoParams.cbsa) {
+            option.classList.add('active');
+          }
+        });
       }
     }
     
@@ -232,6 +274,45 @@ class SourcebookDashboard {
       const localitySelect = document.getElementById('locality_selector');
       if (localitySelect) {
         localitySelect.value = this.geoParams.locality;
+      }
+      
+      // Update custom locality dropdown display
+      const localityDropdown = document.getElementById('locality-dropdown');
+      console.log('Updating locality dropdown for:', this.geoParams.locality); // Debug
+      console.log('Found locality dropdown:', !!localityDropdown); // Debug
+      
+      if (localityDropdown) {
+        const localitySelected = localityDropdown.querySelector('.dropdown-selected');
+        const localityOptions = localityDropdown.querySelectorAll('.dropdown-option');
+        
+        console.log('Found locality selected element:', !!localitySelected); // Debug
+        console.log('Found locality options:', localityOptions.length); // Debug
+        
+        // Update selected display text
+        if (localitySelected) {
+          localitySelected.textContent = this.geoParams.locality;
+          console.log('Updated locality display to:', this.geoParams.locality); // Debug
+        }
+        
+        // Update dropdown data-value
+        localityDropdown.setAttribute('data-value', this.geoParams.locality);
+        
+        // Update active option
+        let foundMatch = false;
+        localityOptions.forEach(option => {
+          option.classList.remove('active');
+          const optionValue = option.getAttribute('data-value');
+          if (optionValue === this.geoParams.locality) {
+            option.classList.add('active');
+            foundMatch = true;
+            console.log('Found matching option for:', this.geoParams.locality); // Debug
+          }
+        });
+        
+        if (!foundMatch) {
+          console.log('No matching option found for:', this.geoParams.locality); // Debug
+          console.log('Available options:', Array.from(localityOptions).map(o => o.getAttribute('data-value'))); // Debug
+        }
       }
     }
     
@@ -376,37 +457,47 @@ class SourcebookDashboard {
   
   getSubpageTitle(subpageId) {
     const titleMap = {
+      'intro-page': 'Welcome - Sourcebook',
+      // Demographics
       'demographics-total-population': 'Total Population',
       'demographics-population-change': 'Population Change',
       'demographics-race-ethnicity': 'Race and Ethnicity',
       'demographics-age': 'Age',
       'demographics-household-type': 'Household Type',
       'demographics-household-size': 'Household Size',
+      // Economics
+      'economics-household-income': 'Household Income',
+      'economics-poverty': 'Poverty',
+      'economics-employment': 'Employment',
+      // Inventory
       'inventory-housing-production': 'Housing Production',
       'inventory-housing-type': 'Housing Type',
       'inventory-housing-age': 'Housing Age',
       'inventory-housing-characteristics': 'Housing Characteristics',
-      'inventory-overcrowding': 'Overcrowding'
+      'inventory-overcrowding': 'Overcrowding',
+      // Homeownership
+      'homeownership-rate': 'Homeownership Rate',
+      'homeownership-sales': 'Home Sales',
+      'homeownership-hpi': 'House Price Index',
+      'homeownership-mortgages': 'Mortgages',
+      // Rental
+      'rental-rent': 'Rent',
+      'rental-vacancy': 'Rental Vacancy',
+      'rental-assisted': 'Assisted Rentals',
+      // Affordability
+      'affordability-cost-burden': 'Housing Cost Burden',
+      'affordability-gap': 'Rental Housing Gap',
+      'affordability-ami': 'HUD AMI Limits',
+      // Instability
+      'instability-homelessness': 'Homelessness',
+      // Economic Impact Calculators
+      'calculators-new-construction': 'New Construction Calculator',
+      'calculators-renovation': 'Renovation Calculator'
     };
     
     return titleMap[subpageId] || 'Sourcebook';
   }
   
-  showLoading(iframe) {
-    const container = iframe.parentElement;
-    const loadingDiv = container.querySelector('.loading-overlay');
-    
-    if (loadingDiv) {
-      loadingDiv.style.display = 'flex';
-    }
-    
-    // Hide loading after iframe loads
-    iframe.addEventListener('load', () => {
-      if (loadingDiv) {
-        loadingDiv.style.display = 'none';
-      }
-    }, { once: true });
-  }
 }
 
 // Mobile sidebar toggle
