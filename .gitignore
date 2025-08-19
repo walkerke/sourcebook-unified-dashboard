@@ -1,0 +1,9 @@
+/.quarto/
+/_site/
+/docs/
+.DS_Store
+*.html
+*_files/
+/.vscode/
+.Rproj.user/
+*.Rproj

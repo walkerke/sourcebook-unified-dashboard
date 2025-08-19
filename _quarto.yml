@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+format:
+  dashboard:
+    logo: "www/hfv_rgb_logo.png"
+    theme: 
+      - default
+      - www/custom.scss
+    nav-buttons: [github]
+    fillable: true
+    css: www/dashboard.css
+    include-in-header:
+      - text: |
+          <script src="www/dashboard.js"></script>
+
+website:
+  title: "Sourcebook"
+  navbar:
+    title: false
+    logo: "www/hfv_rgb_logo.png"
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto

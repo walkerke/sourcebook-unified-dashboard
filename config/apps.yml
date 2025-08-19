@@ -1,0 +1,42 @@
+# Shiny App URL Configuration
+# This file maps subpage IDs to their corresponding Shiny app URLs
+
+demographics:
+  total-population: "https://0197555d-a8b9-af9f-94bd-37957358c5d6.share.connect.posit.cloud/"
+  population-change: "https://01975570-3565-70fc-e3e1-cff03afed391.share.connect.posit.cloud/"
+  population-change-percent: "https://0197556e-78e9-aee8-9816-f3e7e62d0dfe.share.connect.posit.cloud/"
+  race-ethnicity: "https://example-race-ethnicity.connect.posit.cloud/"
+  age: "https://example-age.connect.posit.cloud/"
+  household-type: "https://example-household-type.connect.posit.cloud/"
+  household-size: "https://example-household-size.connect.posit.cloud/"
+
+inventory:
+  housing-production: "https://example-building-permits.connect.posit.cloud/"
+  housing-type: "https://example-housing-type.connect.posit.cloud/"
+  housing-age: "https://example-housing-age.connect.posit.cloud/"
+  housing-characteristics: "https://example-housing-characteristics.connect.posit.cloud/"
+  overcrowding: "https://example-overcrowding.connect.posit.cloud/"
+
+economics:
+  household-income: "https://example-household-income.connect.posit.cloud/"
+  poverty: "https://example-poverty.connect.posit.cloud/"
+  employment: "https://example-employment.connect.posit.cloud/"
+
+homeownership:
+  rate: "https://example-homeownership-rate.connect.posit.cloud/"
+  sales: "https://example-home-sales.connect.posit.cloud/"
+  hpi: "https://example-house-price-index.connect.posit.cloud/"
+  mortgages: "https://example-mortgages.connect.posit.cloud/"
+
+rental:
+  rent: "https://example-rent.connect.posit.cloud/"
+  vacancy: "https://example-rental-vacancy.connect.posit.cloud/"
+  assisted: "https://example-assisted-rentals.connect.posit.cloud/"
+
+affordability:
+  cost-burden: "https://example-cost-burden.connect.posit.cloud/"
+  gap: "https://example-rental-gap.connect.posit.cloud/"
+  ami: "https://example-ami-limits.connect.posit.cloud/"
+
+instability:
+  homelessness: "https://example-homelessness.connect.posit.cloud/"

@@ -1,0 +1,539 @@
+---
+format:
+  dashboard:
+    theme: 
+      - default
+      - www/custom.scss
+    nav-buttons: []
+    fillable: true
+---
+
+## {.sidebar}
+
+```{r}
+#| echo: false
+
+library(bslib)
+library(bsicons)
+library(htmltools)
+library(shiny)
+
+# Complete sidebar content in proper order
+tagList(
+  # Header with logo and branding - at the very top
+  div(
+    class = "sidebar-header",
+    style = "padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 1rem;",
+    
+    # Clickable logo/title for home
+    tags$a(
+      href = "#intro-page",
+      `data-subpage` = "intro-page",
+      style = "text-decoration: none; cursor: pointer;",
+      div(
+        style = "text-align: center; margin-bottom: 0.75rem; background-color: rgba(255, 255, 255, 0.95); border-radius: 8px; padding: 0.75rem; margin: 0 1rem 0.75rem 1rem; transition: all 0.2s ease;",
+        class = "home-link",
+        img(src = "www/hfv_rgb_logo.png", style = "height: 50px; max-width: 100%; object-fit: contain;")
+      ),
+      div(
+        style = "text-align: center; color: white; font-weight: 700; font-size: 1.4rem; letter-spacing: 1px; margin-top: 0.5rem; transition: all 0.2s ease;",
+        class = "home-title",
+        "SOURCEBOOK"
+      )
+    ),
+    
+    # Social icons
+    div(
+      style = "text-align: center; margin-top: 0.75rem;",
+      div(
+        style = "display: flex; justify-content: center; gap: 0.75rem;",
+        tags$a(
+          href = "https://housingforwardva.org",
+          target = "_blank",
+          title = "HousingForward Virginia Website",
+          style = "color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.2s ease; padding: 0.25rem;",
+          class = "social-icon",
+          bsicons::bs_icon("globe", size = "1.1em")
+        ),
+        tags$a(
+          href = "https://twitter.com/housingforwardva",
+          target = "_blank",
+          title = "Follow us on Twitter",
+          style = "color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.2s ease; padding: 0.25rem;",
+          class = "social-icon",
+          bsicons::bs_icon("twitter-x", size = "1.1em")
+        ),
+        tags$a(
+          href = "https://www.linkedin.com/company/housingforwardva/",
+          target = "_blank",
+          title = "Connect on LinkedIn", 
+          style = "color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.2s ease; padding: 0.25rem;",
+          class = "social-icon",
+          bsicons::bs_icon("linkedin", size = "1.1em")
+        )
+      )
+    )
+  ),
+  
+  # Custom Geographic Selection with Toggle Buttons
+  div(
+    style = "margin-bottom: 20px; padding: 0 1.5rem;",
+    
+    # Label for geographic selection
+    tags$label("View data for:", class = "geo-selector-label"),
+    
+    # Custom toggle button group
+    div(
+      class = "geo-toggle-group",
+      style = "margin-bottom: 1rem;",
+      tags$button(
+        class = "geo-toggle-btn active",
+        `data-value` = "state",
+        id = "btn-state",
+        "Virginia State"
+      ),
+      tags$button(
+        class = "geo-toggle-btn",
+        `data-value` = "cbsa", 
+        id = "btn-cbsa",
+        "Metro Area"
+      ),
+      tags$button(
+        class = "geo-toggle-btn",
+        `data-value` = "locality",
+        id = "btn-locality", 
+        "Locality"
+      )
+    ),
+    
+    # Hidden input to maintain Shiny compatibility
+    tags$input(
+      type = "hidden",
+      id = "geo_level",
+      name = "geo_level",
+      value = "state"
+    )
+  ),
+  
+  # CBSA Selector (JavaScript-controlled visibility)
+  div(
+    id = "cbsa-selector-container",
+    class = "geo-selector-container",
+    style = "margin-bottom: 15px; padding: 0 1.5rem; display: none;",
+    tags$label("Select Metro Area:", class = "geo-selector-label"),
+    div(
+      class = "custom-dropdown",
+      id = "cbsa-dropdown",
+      `data-value` = "richmond",
+      tags$div(class = "dropdown-selected", "Richmond, VA"),
+      tags$div(class = "dropdown-arrow", "▼"),
+      tags$div(
+        class = "dropdown-options",
+        tags$div(class = "dropdown-option active", `data-value` = "richmond", "Richmond, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "hampton_roads", "Virginia Beach-Norfolk-Newport News, VA-NC"),
+        tags$div(class = "dropdown-option", `data-value` = "dc_metro", "Washington-Arlington-Alexandria, DC-VA-MD-WV"),
+        tags$div(class = "dropdown-option", `data-value` = "lynchburg", "Lynchburg, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "charlottesville", "Charlottesville, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "roanoke", "Roanoke, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "harrisonburg", "Harrisonburg, VA"),
+        tags$div(class = "dropdown-option", `data-value` = "blacksburg", "Blacksburg-Christiansburg, VA")
+      )
+    ),
+    # Hidden input for compatibility
+    tags$input(type = "hidden", id = "cbsa_selector", name = "cbsa_selector", value = "richmond")
+  ),
+  
+  # Locality Selector (JavaScript-controlled visibility)
+  div(
+    id = "locality-selector-container",
+    class = "geo-selector-container", 
+    style = "margin-bottom: 15px; padding: 0 1.5rem; display: none;",
+    tags$label("Select Locality:", class = "geo-selector-label"),
+    div(
+      class = "custom-dropdown",
+      id = "locality-dropdown",
+      `data-value` = "richmond_city",
+      tags$div(class = "dropdown-selected", "Richmond City"),
+      tags$div(class = "dropdown-arrow", "▼"),
+      tags$div(
+        class = "dropdown-options",
+        tags$div(class = "dropdown-option active", `data-value` = "richmond_city", "Richmond City"),
+        tags$div(class = "dropdown-option", `data-value` = "henrico", "Henrico County"),
+        tags$div(class = "dropdown-option", `data-value` = "chesterfield", "Chesterfield County"),
+        tags$div(class = "dropdown-option", `data-value` = "virginia_beach", "Virginia Beach City"),
+        tags$div(class = "dropdown-option", `data-value` = "norfolk", "Norfolk City"),
+        tags$div(class = "dropdown-option", `data-value` = "chesapeake", "Chesapeake City"),
+        tags$div(class = "dropdown-option", `data-value` = "newport_news", "Newport News City"),
+        tags$div(class = "dropdown-option", `data-value` = "hampton", "Hampton City"),
+        tags$div(class = "dropdown-option", `data-value` = "portsmouth", "Portsmouth City"),
+        tags$div(class = "dropdown-option", `data-value` = "alexandria", "Alexandria City"),
+        tags$div(class = "dropdown-option", `data-value` = "fairfax", "Fairfax County"),
+        tags$div(class = "dropdown-option", `data-value` = "prince_william", "Prince William County"),
+        tags$div(class = "dropdown-option", `data-value` = "loudoun", "Loudoun County"),
+        tags$div(class = "dropdown-option", `data-value` = "arlington", "Arlington County")
+      )
+    ),
+    # Hidden input for compatibility
+    tags$input(type = "hidden", id = "locality_selector", name = "locality_selector", value = "richmond_city")
+  ),
+  
+  # Navigation Section Divider
+  hr(style = "margin: 20px 1.5rem; border-color: rgba(255, 255, 255, 0.2);"),
+  
+  # Topic Navigation Accordion
+  accordion(
+  id = "topic_nav",
+  open = NULL,
+  
+  # Demographics Section
+  accordion_panel(
+    "Demographics",
+    icon = bsicons::bs_icon("people-fill"),
+    div(
+      a("Total Population", 
+        href = "#demographics-total-population", 
+        `data-subpage` = "demographics-total-population"),
+      br(),
+      a("Population Change", 
+        href = "#demographics-population-change", 
+        `data-subpage` = "demographics-population-change"),
+      br(),
+      a("Race and Ethnicity", 
+        href = "#demographics-race-ethnicity", 
+        `data-subpage` = "demographics-race-ethnicity"),
+      br(),
+      a("Age", 
+        href = "#demographics-age", 
+        `data-subpage` = "demographics-age"),
+      br(),
+      a("Household Type", 
+        href = "#demographics-household-type", 
+        `data-subpage` = "demographics-household-type"),
+      br(),
+      a("Household Size", 
+        href = "#demographics-household-size", 
+        `data-subpage` = "demographics-household-size")
+    )
+  ),
+  
+  # Inventory Section
+  accordion_panel(
+    "Inventory",
+    icon = bsicons::bs_icon("house"),
+    div(
+      a("Housing Production", 
+        href = "#inventory-housing-production", 
+        `data-subpage` = "inventory-housing-production"),
+      br(),
+      a("Housing Type", 
+        href = "#inventory-housing-type", 
+        `data-subpage` = "inventory-housing-type"),
+      br(),
+      a("Housing Age", 
+        href = "#inventory-housing-age", 
+        `data-subpage` = "inventory-housing-age"),
+      br(),
+      a("Housing Characteristics", 
+        href = "#inventory-housing-characteristics", 
+        `data-subpage` = "inventory-housing-characteristics"),
+      br(),
+      a("Overcrowding", 
+        href = "#inventory-overcrowding", 
+        `data-subpage` = "inventory-overcrowding")
+    )
+  ),
+  
+  # Economics Section
+  accordion_panel(
+    "Economics",
+    icon = bsicons::bs_icon("graph-up"),
+    div(
+      a("Household Income", 
+        href = "#economics-household-income", 
+        `data-subpage` = "economics-household-income"),
+      br(),
+      a("Poverty", 
+        href = "#economics-poverty", 
+        `data-subpage` = "economics-poverty"),
+      br(),
+      a("Employment", 
+        href = "#economics-employment", 
+        `data-subpage` = "economics-employment")
+    )
+  ),
+  
+  # Homeownership Section
+  accordion_panel(
+    "Homeownership",
+    icon = bsicons::bs_icon("house-door"),
+    div(
+      a("Homeownership Rate", 
+        href = "#homeownership-rate", 
+        `data-subpage` = "homeownership-rate"),
+      br(),
+      a("Home Sales", 
+        href = "#homeownership-sales", 
+        `data-subpage` = "homeownership-sales"),
+      br(),
+      a("House Price Index", 
+        href = "#homeownership-hpi", 
+        `data-subpage` = "homeownership-hpi"),
+      br(),
+      a("Mortgages", 
+        href = "#homeownership-mortgages", 
+        `data-subpage` = "homeownership-mortgages")
+    )
+  ),
+  
+  # Rental Section
+  accordion_panel(
+    "Rental",
+    icon = bsicons::bs_icon("key"),
+    div(
+      a("Rent", 
+        href = "#rental-rent", 
+        `data-subpage` = "rental-rent"),
+      br(),
+      a("Rental Vacancy", 
+        href = "#rental-vacancy", 
+        `data-subpage` = "rental-vacancy"),
+      br(),
+      a("Assisted Rentals", 
+        href = "#rental-assisted", 
+        `data-subpage` = "rental-assisted")
+    )
+  ),
+  
+  # Affordability Section
+  accordion_panel(
+    "Affordability",
+    icon = bsicons::bs_icon("currency-dollar"),
+    div(
+      a("Cost Burden", 
+        href = "#affordability-cost-burden", 
+        `data-subpage` = "affordability-cost-burden"),
+      br(),
+      a("Rental Housing Gap", 
+        href = "#affordability-gap", 
+        `data-subpage` = "affordability-gap"),
+      br(),
+      a("HUD AMI Limits", 
+        href = "#affordability-ami", 
+        `data-subpage` = "affordability-ami")
+    )
+  ),
+  
+  # Instability Section
+  accordion_panel(
+    "Instability",
+    icon = bsicons::bs_icon("exclamation-triangle"),
+    div(
+      a("Homelessness", 
+        href = "#instability-homelessness", 
+        `data-subpage` = "instability-homelessness")
+    )
+  )
+  ) # Close accordion
+) # Close tagList
+```
+
+## Column {.fill}
+
+```{r}
+#| echo: false
+
+# Include the dashboard JavaScript
+tags$script(src = "www/dashboard.js")
+
+# Content area wrapper
+div(
+  class = "content-area",
+  
+  # Intro/Welcome Page (default)
+  div(
+    id = "intro-page",
+    class = "content-page active",
+    
+    # Banner with logo
+    div(
+      class = "intro-banner",
+      style = "text-align: center; margin-bottom: 3rem; padding: 3rem 2rem; background: linear-gradient(135deg, #011E41 0%, #40C0C0 100%); border-radius: 12px; color: white;",
+      div(
+        style = "margin-bottom: 1.5rem;",
+        img(src = "www/hfv_primary_logo.svg", style = "height: 80px; max-width: 100%; object-fit: contain;")
+      ),
+      h1(style = "font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: white;", "SOURCEBOOK"),
+      p(style = "font-size: 1.25rem; color: rgba(255, 255, 255, 0.9); margin: 0;", "Understand your community's housing needs.")
+    ),
+    
+    # Main intro content
+    div(
+      style = "max-width: 800px; margin: 0 auto; padding: 0 2rem;",
+      
+      p(style = "font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;", 
+        "Sourcebook is HousingForward Virginia's online compendium of housing data. It collects, summarizes, and presents dozens of different data points to help users understand housing trends in their communities to advocate for and implement better housing solutions."),
+      
+      p(style = "font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;",
+        "Housing and housing-related data is spread across multiple sources and can be time-consuming to clean up, analyze, and visualize. Sourcebook brings together the most important data points in one place to make that work simpler for you."),
+      
+      p(style = "font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;",
+        "Sourcebook is an evolving and user-focused resource. We encourage you to contact us if there are particular features you would like to see, or data points that would be most helpful to your work."),
+      
+      # Getting started section
+      div(
+        class = "getting-started",
+        style = "background-color: #f8f9fa; padding: 2rem; border-radius: 8px; margin-top: 2rem;",
+        h2(style = "color: #011E41; font-weight: 600; margin-bottom: 1rem;", "Getting Started"),
+        p(style = "margin-bottom: 1rem;", "Use the sidebar to navigate through different housing data topics:"),
+        tags$ul(
+          style = "margin-left: 1.5rem;",
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Demographics: "), "Population, age, household composition"),
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Inventory: "), "Housing stock, type, age, and characteristics"),
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Economics: "), "Income, poverty, and employment data"),
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Homeownership: "), "Sales, prices, and mortgage information"),
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Rental: "), "Rent levels, vacancy, and assisted housing"),
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Affordability: "), "Cost burden and housing gaps"),
+          tags$li(style = "margin-bottom: 0.5rem;", tags$strong("Instability: "), "Homelessness data")
+        ),
+        p(style = "margin-top: 1rem; font-style: italic;", "Select your geographic area at the top of the sidebar, then explore the data topics that interest you most.")
+      )
+    )
+  ),
+  
+  # Demographics - Total Population
+  div(
+    id = "demographics-total-population",
+    class = "content-page",
+    
+    h1("Total Population"),
+    
+    p("Population counts provide fundamental information for understanding community demographics and growth patterns. These data help inform infrastructure planning, resource allocation, and policy decisions at all levels of government."),
+    
+    h2("Current Population"),
+    
+    p("This dashboard shows the most recent population estimates for Virginia's localities, metro areas, and the state as a whole. Data is updated annually and provides both current counts and historical trends."),
+    
+    div(
+      class = "app-container",
+      div(class = "loading-overlay loading", "Loading dashboard..."),
+      tags$iframe(
+        `data-base-url` = "https://0197555d-a8b9-af9f-94bd-37957358c5d6.share.connect.posit.cloud/",
+        width = "100%",
+        height = "70vh",
+        frameborder = "0",
+        scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(
+      class = "resources-section",
+      h3("Data Sources"),
+      div(
+        class = "data-sources",
+        h4("U.S. Census Bureau Population Estimates Program (PEP)"),
+        p("The Population Estimates Program produces annual estimates of the population for the nation, states, metropolitan and micropolitan statistical areas, counties, cities, and towns.")
+      )
+    )
+  ),
+  
+  # Demographics - Population Change  
+  div(
+    id = "demographics-population-change",
+    class = "content-page",
+    
+    h1("Population Change"),
+    
+    p("Understanding population change helps communities plan for growth or manage decline. This section breaks down population change into its components: natural increase (births minus deaths) and net migration (in-migration minus out-migration)."),
+    
+    h2("Components of Population Change"),
+    
+    p("Population change occurs through two primary mechanisms: natural increase (when births exceed deaths) and net migration (when in-migration exceeds out-migration). Understanding these components helps communities identify whether growth is driven by families choosing to stay and have children, or by newcomers moving to the area."),
+    
+    div(
+      class = "app-container",
+      div(class = "loading-overlay loading", "Loading dashboard..."),
+      tags$iframe(
+        `data-base-url` = "https://01975570-3565-70fc-e3e1-cff03afed391.share.connect.posit.cloud/",
+        width = "100%", 
+        height = "70vh",
+        frameborder = "0",
+        scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(
+      class = "resources-section",
+      h3("Data Sources"),
+      div(
+        class = "data-sources",
+        h4("U.S. Census Bureau Population Estimates Program (PEP)"),
+        p("Annual estimates of population change components including births, deaths, and migration flows.")
+      )
+    )
+  ),
+  
+  # Inventory - Housing Type (detailed example)
+  div(
+    id = "inventory-housing-type",
+    class = "content-page",
+    
+    h1("Housing Type by Tenure"),
+    
+    p("The dashboards on this page break down housing stock by the number of homes within each building. For example, a 1-unit residential building is a single-family home, while a 5-unit residential building is a small apartment complex. These data are helpful in understanding the makeup of a community's housing supply, overall density, and construction trends."),
+    
+    h2("Housing type by tenure"),
+    
+    p("This dashboard shows the current supply of occupied housing units among owners, renters, and all households, broken down by number of homes within each building."),
+    
+    p("All homes are classified into one of the following six categories:"),
+    
+    tags$ul(
+      tags$li(tags$strong("Single-family (detached)"), " are homes with one living unit that does not share any walls with another home."),
+      tags$li(tags$strong("Single-family (attached)"), " are homes with one living unit that shares at least one wall with another home."),
+      tags$li(tags$strong("Small-scale multifamily"), " are homes in buildings with 2 to 19 total units. This includes duplexes, triplexes, and other similar buildings of three stories or fewer. This typically includes low-rise and mid-rise apartments."),
+      tags$li(tags$strong("Medium-scale multifamily"), " are homes in buildings with 20 to 49 total units. This typically includes low-rise and mid-rise apartments."),
+      tags$li(tags$strong("Large-scale multifamily"), " are homes in buildings with 50 or more total units. This typically includes mid-rise and high-rise apartments."),
+      tags$li(tags$strong("Mobile (manufactured) home"), " are factory-built homes that are fully built on a chassis. These homes are built to meet standards promulgated by the U.S. Department of Housing and Urban Development (the \"HUD Code\") and are distinct from modular/prefabricated homes.")
+    ),
+    
+    p("Data is available at the state, CBSA, and locality level."),
+    
+    p(tags$strong("NOTE:"), " The American Community Survey also includes an 'Other' category for certain housing types. These homes include boats, recreational vehicles (RVs), vans, and all other units that do not fall into one of the above categories. We have omitted this category because the share of these 'Other' units is insignificant (less than one percent) across all geographies in Virginia."),
+    
+    div(
+      class = "app-container",
+      div(class = "loading-overlay loading", "Loading dashboard..."),
+      tags$iframe(
+        `data-base-url` = "https://example-housing-type-app.connect.posit.cloud/",
+        width = "100%",
+        height = "70vh", 
+        frameborder = "0",
+        scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+    
+    div(
+      class = "resources-section",
+      h3("Additional Resources"),
+      p(tags$a("How Virginia communities are encouraging 'Missing Middle Housing'", 
+               href = "#", target = "_blank"), " - Planetizen"),
+      
+      h3("Data Sources"),
+      div(
+        class = "data-sources",
+        h4("American Community Survey"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from one ACS table:"),
+        p(tags$strong("Table B25032:"), " Tenure by Units in Structure"),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error."),
+        p("The data contained in Sourcebook is intended for informational, educational and research uses. The information may not be used for commercial purposes or re-marketed. Any reproduction and distribution of this information must clearly identify HousingForward Virginia and Sourcebook as the provider of the information.")
+      )
+    )
+  )
+  
+  # Additional content pages will be added here as we expand
+)
+```

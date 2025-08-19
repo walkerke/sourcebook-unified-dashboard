@@ -1,0 +1,624 @@
+/*-- scss:defaults --*/
+
+// HousingForward Virginia Brand Colors
+$hfv-navy: #011E41;
+$hfv-teal: #40C0C0;
+$hfv-light-gray: #E8EDF2;
+$hfv-dark-navy: #102C54;
+
+// Override default dashboard colors
+$primary: $hfv-navy;
+$secondary: $hfv-teal;
+$light: $hfv-light-gray;
+
+/*-- scss:rules --*/
+
+// Remove Quarto dashboard card styling
+.card, .card-body {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.bslib-card {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// Remove dashboard container padding/margins
+.dashboard-page {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.dashboard .dashboard-page {
+  padding: 0 !important;
+}
+
+// Hide default dashboard header/navbar and all header remnants
+.navbar,
+.bslib-page-navbar .navbar,
+.dashboard .navbar,
+div[data-bs-theme] .navbar,
+.dashboard-page .navbar,
+.bslib-page-dashboard .navbar,
+header,
+.dashboard header,
+.page-header,
+.dashboard-header,
+.bslib-dashboard-header {
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+// Move collapse toggle to the right only when sidebar is expanded
+.collapse-toggle[aria-expanded="true"] {
+  left: 350px !important;
+}
+
+// Professional dashboard styling
+.dashboard {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+// Adjust body layout to account for no header
+body {
+  padding-top: 0 !important;
+}
+
+// Sidebar enhancements
+.sidebar {
+  background: linear-gradient(180deg, $hfv-navy 0%, $hfv-dark-navy 100%) !important;
+  width: 340px !important;
+  min-width: 340px !important;
+  flex-shrink: 0;
+  color: white;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+  height: 100vh !important;
+  overflow-y: auto;
+  z-index: 1000;
+  
+  // Custom branded scrollbar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(64, 192, 192, 0.6);
+    border-radius: 4px;
+    
+    &:hover {
+      background: rgba(64, 192, 192, 0.8);
+    }
+  }
+  
+  // Firefox scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: rgba(64, 192, 192, 0.6) rgba(255, 255, 255, 0.1);
+
+  .sidebar-title {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  // Home link hover effects
+  .home-link:hover {
+    background-color: white !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .home-title:hover {
+    color: $hfv-teal !important;
+  }
+
+  // Social icon hover effects
+  .social-icon {
+    border-radius: 4px;
+
+    &:hover {
+      color: $hfv-teal !important;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  h5 {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+  }
+
+  label {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+
+  // Custom toggle button group styling
+  .geo-toggle-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    width: 100%;
+
+    .geo-toggle-btn {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      color: rgba(255, 255, 255, 0.85);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      outline: none;
+      position: relative;
+      line-height: 1.2;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.12);
+        border-color: rgba(64, 192, 192, 0.4);
+        color: rgba(255, 255, 255, 0.95);
+        transform: translateY(-0.5px);
+      }
+
+      &.active {
+        background-color: $hfv-teal;
+        border-color: $hfv-teal;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(64, 192, 192, 0.25);
+        transform: none;
+
+        &:hover {
+          background-color: darken($hfv-teal, 3%);
+          transform: none;
+        }
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba(64, 192, 192, 0.4);
+      }
+    }
+  }
+
+  // Enhanced dropdown styling
+  .form-control, .form-select {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: $hfv-navy;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      border-color: rgba(64, 192, 192, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &:focus {
+      background-color: white;
+      border-color: $hfv-teal;
+      box-shadow: 0 0 0 0.2rem rgba(64, 192, 192, 0.25);
+      outline: none;
+    }
+  }
+
+  // Custom select arrow styling
+  .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23011E41' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem;
+
+    &:focus {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2340C0C0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    }
+  }
+
+  // Label styling improvements
+  label, .geo-selector-label {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem !important;
+    display: block;
+  }
+
+  // Selector container styling
+  .geo-selector-container {
+    transition: all 0.3s ease;
+
+    &.hidden {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // Custom dropdown styling
+  .custom-dropdown {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      border-color: rgba(64, 192, 192, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &.open {
+      border-color: $hfv-teal;
+      box-shadow: 0 0 0 0.2rem rgba(64, 192, 192, 0.25);
+
+      .dropdown-arrow {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-options {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-selected {
+      padding: 0.75rem 2.5rem 0.75rem 1rem;
+      color: $hfv-navy;
+      font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dropdown-arrow {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $hfv-navy;
+      font-size: 0.7rem;
+      transition: transform 0.2s ease;
+      pointer-events: none;
+    }
+
+    .dropdown-options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      border: 1px solid rgba(64, 192, 192, 0.3);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+      z-index: 1000;
+      max-height: 200px;
+      overflow-y: auto;
+
+      .dropdown-option {
+        padding: 0.75rem 1rem;
+        color: $hfv-navy;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: rgba(64, 192, 192, 0.1);
+          color: darken($hfv-navy, 10%);
+        }
+
+        &.active {
+          background-color: $hfv-teal;
+          color: white;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .btn-check:checked + .btn,
+  .btn.active {
+    background-color: $hfv-teal;
+    border-color: $hfv-teal;
+    color: white;
+  }
+}
+
+// Navigation accordion styling
+.accordion {
+  .accordion-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .accordion-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:not(.collapsed) {
+      background-color: $hfv-teal;
+      color: white;
+      box-shadow: none;
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      }
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='rgba%28255,255,255,0.8%29'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: transparent;
+    }
+  }
+
+  .accordion-body {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1.5rem 1rem;
+
+    a {
+      display: block;
+      padding: 0.5rem 0;
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $hfv-teal;
+        text-decoration: none;
+        padding-left: 0.5rem;
+      }
+
+      &.active {
+        color: $hfv-teal;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Fix layout to prevent sidebar overlay
+.dashboard {
+  display: flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+// Content area styling
+.content-area {
+  background-color: white;
+  min-height: 100vh;
+  flex: 1;
+  padding: 2rem 4rem !important;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+
+  .content-page {
+    display: none;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+
+    &.active {
+      display: block;
+    }
+
+    h1 {
+      color: $hfv-navy;
+      font-weight: 700;
+      font-size: 2.25rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      color: $hfv-navy;
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .app-container {
+      margin: 2rem 0;
+
+      iframe {
+        width: 100%;
+        height: 70vh;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .resources-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e0e0e0;
+
+      h3 {
+        color: $hfv-navy;
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .data-sources {
+        background-color: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+
+        h4 {
+          color: $hfv-navy;
+          font-weight: 600;
+          font-size: 1rem;
+          margin-bottom: 0.75rem;
+        }
+
+        p {
+          font-size: 0.875rem;
+          color: #666;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+// Loading states
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: $hfv-navy;
+  font-weight: 500;
+
+  &::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid $hfv-teal;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+    min-width: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: -100% !important;
+    height: 100vh !important;
+    z-index: 1050 !important;
+    transition: left 0.3s ease !important;
+
+    &.show {
+      left: 0 !important;
+    }
+  }
+
+  .content-area {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .content-page {
+    padding: 1rem !important;
+
+    h1 {
+      font-size: 1.75rem !important;
+    }
+
+    .app-container iframe {
+      height: 60vh;
+    }
+  }
+}
+
+// Accessibility improvements
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Focus indicators
+a:focus, button:focus, input:focus, select:focus {
+  outline: 2px solid $hfv-teal;
+  outline-offset: 2px;
+}

@@ -1,0 +1,38 @@
+# Housing Type by Tenure
+
+The dashboards on this page break down housing stock by the number of homes within each building. For example, a 1-unit residential building is a single-family home, while a 5-unit residential building is a small apartment complex. These data are helpful in understanding the makeup of a community's housing supply, overall density, and construction trends.
+
+## Housing type by tenure
+
+This dashboard shows the current supply of occupied housing units among owners, renters, and all households, broken down by number of homes within each building.
+
+All homes are classified into one of the following six categories:
+
+- **Single-family (detached)** are homes with one living unit that does not share any walls with another home.
+- **Single-family (attached)** are homes with one living unit that shares at least one wall with another home.
+- **Small-scale multifamily** are homes in buildings with 2 to 19 total units. This includes duplexes, triplexes, and other similar buildings of three stories or fewer. This typically includes low-rise and mid-rise apartments.
+- **Medium-scale multifamily** are homes in buildings with 20 to 49 total units. This typically includes low-rise and mid-rise apartments.
+- **Large-scale multifamily** are homes in buildings with 50 or more total units. This typically includes mid-rise and high-rise apartments.
+- **Mobile (manufactured) home** are factory-built homes that are fully built on a chassis. These homes are built to meet standards promulgated by the U.S. Department of Housing and Urban Development (the "HUD Code") and are distinct from modular/prefabricated homes.
+
+Data is available at the state, CBSA, and locality level.
+
+**NOTE:** The American Community Survey also includes an 'Other' category for certain housing types. These homes include boats, recreational vehicles (RVs), vans, and all other units that do not fall into one of the above categories. We have omitted this category because the share of these 'Other' units is insignificant (less than one percent) across all geographies in Virginia.
+
+## Additional Resources
+
+[How Virginia communities are encouraging 'Missing Middle Housing'](https://www.planetizen.com) - Planetizen
+
+## Data Sources
+
+### American Community Survey
+
+The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses.
+
+This section uses data from one ACS table:
+
+**Table B25032:** Tenure by Units in Structure
+
+The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.
+
+The data contained in Sourcebook is intended for informational, educational and research uses. The information may not be used for commercial purposes or re-marketed. Any reproduction and distribution of this information must clearly identify HousingForward Virginia and Sourcebook as the provider of the information.
