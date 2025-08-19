@@ -62,16 +62,19 @@ class SourcebookDashboard {
   }
   
   setupGeographicControls() {
-    // Set initial values from hardcoded dropdowns
+    // Set initial values from hardcoded dropdowns (as fallbacks)
     const cbsaDropdown = document.getElementById('cbsa-dropdown');
     const localityDropdown = document.getElementById('locality-dropdown');
     
-    if (cbsaDropdown) {
+    // Set defaults if not already set from URL parameters
+    if (cbsaDropdown && !this.geoParams.cbsa) {
       this.geoParams.cbsa = cbsaDropdown.getAttribute('data-value');
     }
-    if (localityDropdown) {
+    if (localityDropdown && !this.geoParams.locality) {
       this.geoParams.locality = localityDropdown.getAttribute('data-value');
     }
+    
+    console.log('Geographic parameters after setup:', this.geoParams); // Debug
     
     // Custom toggle buttons
     const geoToggleButtons = document.querySelectorAll('.geo-toggle-btn');
@@ -95,11 +98,30 @@ class SourcebookDashboard {
         
         // Update internal state
         this.geoParams.level = value;
+        
+        // Set default values when switching to CBSA or locality
+        if (value === 'cbsa') {
+          // Always ensure we have a CBSA value, default to Richmond
+          if (!this.geoParams.cbsa) {
+            this.geoParams.cbsa = 'Richmond, VA';
+            console.log('Set default CBSA:', this.geoParams.cbsa); // Debug
+          }
+        } else if (value === 'locality') {
+          // Always ensure we have a locality value, default to Richmond City
+          if (!this.geoParams.locality) {
+            this.geoParams.locality = 'Richmond City';
+            console.log('Set default locality:', this.geoParams.locality); // Debug
+          }
+        }
+        
         this.updateCurrentIframe();
         this.updateUrl();
         
         // Show/hide appropriate selector containers
         this.updateSelectorVisibility();
+        
+        // Update dropdown displays to show the defaults
+        this.updateGeographicControls();
         
         // Trigger Shiny input change
         this.triggerShinyInputs();
@@ -194,16 +216,32 @@ class SourcebookDashboard {
   
   updateCurrentIframe() {
     const activePage = document.querySelector('.content-page.active');
-    if (!activePage) return;
+    if (!activePage) {
+      console.log('No active page found'); // Debug
+      return;
+    }
     
-    const iframe = activePage.querySelector('iframe');
-    if (!iframe) return;
-    
-    const baseUrl = iframe.getAttribute('data-base-url');
-    if (!baseUrl) return;
+    // Update all iframes on the current page (for pages with multiple apps)
+    const iframes = activePage.querySelectorAll('iframe');
+    if (!iframes.length) {
+      console.log('No iframes found on active page'); // Debug
+      return;
+    }
     
     const geoQuery = this.buildGeoQuery();
-    iframe.src = baseUrl + geoQuery;
+    console.log('Built geo query:', geoQuery); // Debug
+    console.log('Found', iframes.length, 'iframes to update'); // Debug
+    
+    iframes.forEach((iframe, index) => {
+      const baseUrl = iframe.getAttribute('data-base-url');
+      if (baseUrl) {
+        const newUrl = baseUrl + geoQuery;
+        console.log(`Updating iframe ${index + 1}:`, newUrl); // Debug
+        iframe.src = newUrl;
+      } else {
+        console.log(`Iframe ${index + 1} has no data-base-url attribute`); // Debug
+      }
+    });
   }
   
 
@@ -211,12 +249,19 @@ class SourcebookDashboard {
     const params = new URLSearchParams();
     params.set('geo', this.geoParams.level);
     
-    if (this.geoParams.level === 'cbsa' && this.geoParams.cbsa) {
-      params.set('cbsa', this.geoParams.cbsa);
-    } else if (this.geoParams.level === 'locality' && this.geoParams.locality) {
-      params.set('locality', this.geoParams.locality);
+    if (this.geoParams.level === 'cbsa') {
+      // Use the selected CBSA or default to the first one
+      const cbsaValue = this.geoParams.cbsa || 'Richmond, VA';
+      params.set('cbsa', cbsaValue);
+      console.log('Adding CBSA parameter:', cbsaValue); // Debug
+    } else if (this.geoParams.level === 'locality') {
+      // Use the selected locality or default to the first one
+      const localityValue = this.geoParams.locality || 'Richmond City';
+      params.set('locality', localityValue);
+      console.log('Adding locality parameter:', localityValue); // Debug
     }
     
+    console.log('Final geo query:', '?' + params.toString()); // Debug
     return '?' + params.toString();
   }
   

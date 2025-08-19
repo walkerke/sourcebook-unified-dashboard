@@ -1,7 +1,7 @@
 ---
 format:
   dashboard:
-    theme: 
+    theme:
       - default
       - www/custom.scss
     nav-buttons: []
@@ -24,7 +24,7 @@ tagList(
   div(
     class = "sidebar-header",
     style = "padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 1rem;",
-    
+
     # Clickable logo/title for home
     tags$a(
       href = "#intro-page",
@@ -41,7 +41,7 @@ tagList(
         "SOURCEBOOK"
       )
     ),
-    
+
     # Social icons
     div(
       style = "text-align: center; margin-top: 0.75rem;",
@@ -66,7 +66,7 @@ tagList(
         tags$a(
           href = "https://www.linkedin.com/company/housingforwardva/",
           target = "_blank",
-          title = "Connect on LinkedIn", 
+          title = "Connect on LinkedIn",
           style = "color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: all 0.2s ease; padding: 0.25rem;",
           class = "social-icon",
           bsicons::bs_icon("linkedin", size = "1.1em")
@@ -74,14 +74,14 @@ tagList(
       )
     )
   ),
-  
+
   # Custom Geographic Selection with Toggle Buttons
   div(
     style = "margin-bottom: 20px; padding: 0 1.5rem;",
-    
+
     # Label for geographic selection
     tags$label("View data for:", class = "geo-selector-label"),
-    
+
     # Custom toggle button group
     div(
       class = "geo-toggle-group",
@@ -94,18 +94,18 @@ tagList(
       ),
       tags$button(
         class = "geo-toggle-btn",
-        `data-value` = "cbsa", 
+        `data-value` = "cbsa",
         id = "btn-cbsa",
         "Metro Area"
       ),
       tags$button(
         class = "geo-toggle-btn",
         `data-value` = "locality",
-        id = "btn-locality", 
+        id = "btn-locality",
         "Locality"
       )
     ),
-    
+
     # Hidden input to maintain Shiny compatibility
     tags$input(
       type = "hidden",
@@ -114,7 +114,7 @@ tagList(
       value = "state"
     )
   ),
-  
+
   # CBSA Selector (JavaScript-controlled visibility)
   div(
     id = "cbsa-selector-container",
@@ -150,11 +150,11 @@ tagList(
     # Hidden input for compatibility
     tags$input(type = "hidden", id = "cbsa_selector", name = "cbsa_selector", value = "Richmond, VA")
   ),
-  
+
   # Locality Selector (JavaScript-controlled visibility)
   div(
     id = "locality-selector-container",
-    class = "geo-selector-container", 
+    class = "geo-selector-container",
     style = "margin-bottom: 15px; padding: 0 1.5rem; display: none;",
     tags$label("Select Locality:", class = "geo-selector-label"),
     div(
@@ -194,175 +194,171 @@ tagList(
     # Hidden input for compatibility
     tags$input(type = "hidden", id = "locality_selector", name = "locality_selector", value = "Richmond City")
   ),
-  
+
   # Navigation Section Divider
   hr(style = "margin: 20px 1.5rem; border-color: rgba(255, 255, 255, 0.2);"),
-  
+
   # Topic Navigation Accordion
   accordion(
   id = "topic_nav",
   open = NULL,
-  
+
   # Demographics Section
   accordion_panel(
     "Demographics",
     icon = bsicons::bs_icon("people-fill"),
     div(
-      a("Total Population", 
-        href = "#demographics-total-population", 
+      a("Total Population",
+        href = "#demographics-total-population",
         `data-subpage` = "demographics-total-population"),
       br(),
-      a("Population Change", 
-        href = "#demographics-population-change", 
-        `data-subpage` = "demographics-population-change"),
-      br(),
-      a("Race and Ethnicity", 
-        href = "#demographics-race-ethnicity", 
+      a("Race and Ethnicity",
+        href = "#demographics-race-ethnicity",
         `data-subpage` = "demographics-race-ethnicity"),
       br(),
-      a("Age", 
-        href = "#demographics-age", 
+      a("Age",
+        href = "#demographics-age",
         `data-subpage` = "demographics-age"),
       br(),
-      a("Household Type", 
-        href = "#demographics-household-type", 
+      a("Household Type",
+        href = "#demographics-household-type",
         `data-subpage` = "demographics-household-type"),
       br(),
-      a("Household Size", 
-        href = "#demographics-household-size", 
+      a("Household Size",
+        href = "#demographics-household-size",
         `data-subpage` = "demographics-household-size")
     )
   ),
-  
+
   # Inventory Section
   accordion_panel(
     "Inventory",
     icon = bsicons::bs_icon("house"),
     div(
-      a("Housing Production", 
-        href = "#inventory-housing-production", 
+      a("Housing Production",
+        href = "#inventory-housing-production",
         `data-subpage` = "inventory-housing-production"),
       br(),
-      a("Housing Type", 
-        href = "#inventory-housing-type", 
+      a("Housing Type",
+        href = "#inventory-housing-type",
         `data-subpage` = "inventory-housing-type"),
       br(),
-      a("Housing Age", 
-        href = "#inventory-housing-age", 
+      a("Housing Age",
+        href = "#inventory-housing-age",
         `data-subpage` = "inventory-housing-age"),
       br(),
-      a("Housing Characteristics", 
-        href = "#inventory-housing-characteristics", 
+      a("Housing Characteristics",
+        href = "#inventory-housing-characteristics",
         `data-subpage` = "inventory-housing-characteristics"),
       br(),
-      a("Overcrowding", 
-        href = "#inventory-overcrowding", 
+      a("Overcrowding",
+        href = "#inventory-overcrowding",
         `data-subpage` = "inventory-overcrowding")
     )
   ),
-  
+
   # Economics Section
   accordion_panel(
     "Economics",
     icon = bsicons::bs_icon("graph-up"),
     div(
-      a("Household Income", 
-        href = "#economics-household-income", 
+      a("Household Income",
+        href = "#economics-household-income",
         `data-subpage` = "economics-household-income"),
       br(),
-      a("Poverty", 
-        href = "#economics-poverty", 
+      a("Poverty",
+        href = "#economics-poverty",
         `data-subpage` = "economics-poverty"),
       br(),
-      a("Employment", 
-        href = "#economics-employment", 
+      a("Employment",
+        href = "#economics-employment",
         `data-subpage` = "economics-employment")
     )
   ),
-  
+
   # Homeownership Section
   accordion_panel(
     "Homeownership",
     icon = bsicons::bs_icon("house-door"),
     div(
-      a("Homeownership Rate", 
-        href = "#homeownership-rate", 
+      a("Homeownership Rate",
+        href = "#homeownership-rate",
         `data-subpage` = "homeownership-rate"),
       br(),
-      a("Home Sales", 
-        href = "#homeownership-sales", 
+      a("Home Sales",
+        href = "#homeownership-sales",
         `data-subpage` = "homeownership-sales"),
       br(),
-      a("House Price Index", 
-        href = "#homeownership-hpi", 
+      a("House Price Index",
+        href = "#homeownership-hpi",
         `data-subpage` = "homeownership-hpi"),
       br(),
-      a("Mortgages", 
-        href = "#homeownership-mortgages", 
+      a("Mortgages",
+        href = "#homeownership-mortgages",
         `data-subpage` = "homeownership-mortgages")
     )
   ),
-  
+
   # Rental Section
   accordion_panel(
     "Rental",
     icon = bsicons::bs_icon("key"),
     div(
-      a("Rent", 
-        href = "#rental-rent", 
+      a("Rent",
+        href = "#rental-rent",
         `data-subpage` = "rental-rent"),
       br(),
-      a("Rental Vacancy", 
-        href = "#rental-vacancy", 
+      a("Rental Vacancy",
+        href = "#rental-vacancy",
         `data-subpage` = "rental-vacancy"),
       br(),
-      a("Assisted Rentals", 
-        href = "#rental-assisted", 
+      a("Assisted Rentals",
+        href = "#rental-assisted",
         `data-subpage` = "rental-assisted")
     )
   ),
-  
+
   # Affordability Section
   accordion_panel(
     "Affordability",
     icon = bsicons::bs_icon("currency-dollar"),
     div(
-      a("Cost Burden", 
-        href = "#affordability-cost-burden", 
+      a("Cost Burden",
+        href = "#affordability-cost-burden",
         `data-subpage` = "affordability-cost-burden"),
       br(),
-      a("Rental Housing Gap", 
-        href = "#affordability-gap", 
+      a("Rental Housing Gap",
+        href = "#affordability-gap",
         `data-subpage` = "affordability-gap"),
       br(),
-      a("HUD AMI Limits", 
-        href = "#affordability-ami", 
+      a("HUD AMI Limits",
+        href = "#affordability-ami",
         `data-subpage` = "affordability-ami")
     )
   ),
-  
+
   # Instability Section
   accordion_panel(
     "Instability",
     icon = bsicons::bs_icon("exclamation-triangle"),
     div(
-      a("Homelessness", 
-        href = "#instability-homelessness", 
+      a("Homelessness",
+        href = "#instability-homelessness",
         `data-subpage` = "instability-homelessness")
     )
   ),
-  
+
   # Economic Impact Calculators Section
   accordion_panel(
     "Economic Impact Calculators",
     icon = bsicons::bs_icon("calculator"),
     div(
-      a("New Construction Calculator", 
-        href = "#calculators-new-construction", 
+      a("New Construction Calculator",
+        href = "#calculators-new-construction",
         `data-subpage` = "calculators-new-construction"),
       br(),
-      a("Renovation Calculator", 
-        href = "#calculators-renovation", 
+      a("Renovation Calculator",
+        href = "#calculators-renovation",
         `data-subpage` = "calculators-renovation")
     )
   )
@@ -381,12 +377,12 @@ tags$script(src = "www/dashboard.js")
 # Content area wrapper
 div(
   class = "content-area",
-  
+
   # Intro/Welcome Page (default)
   div(
     id = "intro-page",
     class = "content-page active",
-    
+
     # Banner with logo
     div(
       class = "intro-banner",
@@ -398,20 +394,20 @@ div(
       h1(style = "font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: white;", "SOURCEBOOK"),
       p(style = "font-size: 1.25rem; color: rgba(255, 255, 255, 0.9); margin: 0;", "Understand your community's housing needs.")
     ),
-    
+
     # Main intro content
     div(
       style = "max-width: 800px; margin: 0 auto; padding: 0 2rem;",
-      
-      p(style = "font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;", 
+
+      p(style = "font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;",
         "Sourcebook is HousingForward Virginia's online compendium of housing data. It collects, summarizes, and presents dozens of different data points to help users understand housing trends in their communities to advocate for and implement better housing solutions."),
-      
+
       p(style = "font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;",
         "Housing and housing-related data is spread across multiple sources and can be time-consuming to clean up, analyze, and visualize. Sourcebook brings together the most important data points in one place to make that work simpler for you."),
-      
+
       p(style = "font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;",
         "Sourcebook is an evolving and user-focused resource. We encourage you to contact us if there are particular features you would like to see, or data points that would be most helpful to your work."),
-      
+
       # Getting started section
       div(
         class = "getting-started",
@@ -433,94 +429,122 @@ div(
       )
     )
   ),
-  
+
   # Demographics - Total Population
   div(
     id = "demographics-total-population",
     class = "content-page",
-    
+
     h1("Total Population"),
-    
-    p("Population counts provide fundamental information for understanding community demographics and growth patterns. These data help inform infrastructure planning, resource allocation, and policy decisions at all levels of government."),
-    
-    h2("Current Population"),
-    
-    p("This dashboard shows the most recent population estimates for Virginia's localities, metro areas, and the state as a whole. Data is updated annually and provides both current counts and historical trends."),
-    
+
+    p("The dashboards on this page include data on total population counts and components of population change. These trends help reveal how much, and for what reasons, population levels may be increasing or decreasing over time."),
+
+    h2("Total population"),
+
+    p("The 2020 Census was greatly impacted by the pandemic, as well as the use of differential privacy. The Demographics Research Group at the University of Virginia's Weldon Cooper Center advises data users to treat 2020 Census numbers with caution. But overall, they find that 2020 Census data \"tends to be more reliable for larger areas and populations whereas in Virginia's smaller localities, data errors and distortions are much more common.\""),
+
+    p("This dashboard shows annual population counts and percent changes. Data for 2010 and 2020 are from those years' Decennial Census counts; all other years use estimates from the Census Bureau's Population Estimates Program (PEP)."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://0197555d-a8b9-af9f-94bd-37957358c5d6.share.connect.posit.cloud/",
+        `data-base-url` = "https://walkerke-total-pop.share.connect.posit.cloud/",
+        src = "https://walkerke-total-pop.share.connect.posit.cloud/?geo=state",
         width = "100%",
+        scrolling = "no",
         height = "70vh",
         frameborder = "0",
-        scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
-    div(
-      class = "resources-section",
-      h3("Data Sources"),
-      div(
-        class = "data-sources",
-        h4("U.S. Census Bureau Population Estimates Program (PEP)"),
-        p("The Population Estimates Program produces annual estimates of the population for the nation, states, metropolitan and micropolitan statistical areas, counties, cities, and towns.")
-      )
-    )
-  ),
-  
-  # Demographics - Population Change  
-  div(
-    id = "demographics-population-change",
-    class = "content-page",
-    
-    h1("Population Change"),
-    
-    p("Understanding population change helps communities plan for growth or manage decline. This section breaks down population change into its components: natural increase (births minus deaths) and net migration (in-migration minus out-migration)."),
-    
-    h2("Components of Population Change"),
-    
-    p("Population change occurs through two primary mechanisms: natural increase (when births exceed deaths) and net migration (when in-migration exceeds out-migration). Understanding these components helps communities identify whether growth is driven by families choosing to stay and have children, or by newcomers moving to the area."),
-    
+
+    h2("Total population change"),
+
+    p("This dashboard shows annual population changes as both raw numbers and percentages, helping to understand growth patterns and demographic trends over time."),
+
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://01975570-3565-70fc-e3e1-cff03afed391.share.connect.posit.cloud/",
-        width = "100%", 
+        `data-base-url` = "https://walkerke-total-pop-chg.share.connect.posit.cloud/",
+        src = "https://walkerke-total-pop-chg.share.connect.posit.cloud/?geo=state",
+        width = "100%",
+        scrolling = "no",
         height = "70vh",
         frameborder = "0",
-        scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
+    h2("Components of population change"),
+
+    p("This dashboard breaks down annual population changes by three different components:"),
+
+    tags$ul(
+      tags$li("Natural increases (births minus deaths),"),
+      tags$li("Domestic migration (net moves from in/out of state), and"),
+      tags$li("International migration (net moves from in/out of the country).")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://walkerke-pop-change.share.connect.posit.cloud/",
+        src = "https://walkerke-pop-change.share.connect.posit.cloud/?geo=state",
+        width = "100%",
+        scrolling = "no",
+        height = "70vh",
+        frameborder = "0",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Additional resources"),
+
+    tags$ul(
+      tags$li(tags$a("U.S. Census Bureau", href = "https://www.census.gov/", target = "_blank")),
+      tags$li(tags$a("Virginia adds more than 600,000 people since 2010", href = "#", target = "_blank")),
+      tags$li(tags$a("UVA Weldon Cooper Center", href = "https://demographics.coopercenter.org/", target = "_blank")),
+      tags$li(tags$a("State population growth slows, with most new residents in Northern Virginia", href = "#", target = "_blank")),
+      tags$li(tags$a("Comparing 2020 Virginia population projections to the Census count", href = "#", target = "_blank"))
+    ),
+
     div(
       class = "resources-section",
       h3("Data Sources"),
+
       div(
         class = "data-sources",
-        h4("U.S. Census Bureau Population Estimates Program (PEP)"),
-        p("Annual estimates of population change components including births, deaths, and migration flows.")
+        h4("Census Population Estimates Program (PEP)"),
+        p("Annual estimates of total population released by the U.S. Census Bureau. Available at locality level from 2010 to 2024. Estimates by age, race, and ethnicity also available, along with components of population change.")
+      ),
+
+      div(
+        class = "data-sources",
+        h4("2020 Decennial Census"),
+        p("Official population counts from the 2020 Census, used as baseline data for population estimates.")
       )
     )
   ),
-  
+
   # Inventory - Housing Type (detailed example)
   div(
     id = "inventory-housing-type",
     class = "content-page",
-    
+
     h1("Housing Type by Tenure"),
-    
+
     p("The dashboards on this page break down housing stock by the number of homes within each building. For example, a 1-unit residential building is a single-family home, while a 5-unit residential building is a small apartment complex. These data are helpful in understanding the makeup of a community's housing supply, overall density, and construction trends."),
-    
+
     h2("Housing type by tenure"),
-    
+
     p("This dashboard shows the current supply of occupied housing units among owners, renters, and all households, broken down by number of homes within each building."),
-    
+
     p("All homes are classified into one of the following six categories:"),
-    
+
     tags$ul(
       tags$li(tags$strong("Single-family (detached)"), " are homes with one living unit that does not share any walls with another home."),
       tags$li(tags$strong("Single-family (attached)"), " are homes with one living unit that shares at least one wall with another home."),
@@ -529,29 +553,29 @@ div(
       tags$li(tags$strong("Large-scale multifamily"), " are homes in buildings with 50 or more total units. This typically includes mid-rise and high-rise apartments."),
       tags$li(tags$strong("Mobile (manufactured) home"), " are factory-built homes that are fully built on a chassis. These homes are built to meet standards promulgated by the U.S. Department of Housing and Urban Development (the \"HUD Code\") and are distinct from modular/prefabricated homes.")
     ),
-    
+
     p("Data is available at the state, CBSA, and locality level."),
-    
+
     p(tags$strong("NOTE:"), " The American Community Survey also includes an 'Other' category for certain housing types. These homes include boats, recreational vehicles (RVs), vans, and all other units that do not fall into one of the above categories. We have omitted this category because the share of these 'Other' units is insignificant (less than one percent) across all geographies in Virginia."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
         `data-base-url` = "https://example-housing-type-app.connect.posit.cloud/",
         width = "100%",
-        height = "70vh", 
+        height = "70vh",
         frameborder = "0",
         scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(
       class = "resources-section",
       h3("Additional Resources"),
-      p(tags$a("How Virginia communities are encouraging 'Missing Middle Housing'", 
+      p(tags$a("How Virginia communities are encouraging 'Missing Middle Housing'",
                href = "#", target = "_blank"), " - Planetizen"),
-      
+
       h3("Data Sources"),
       div(
         class = "data-sources",
@@ -564,17 +588,17 @@ div(
       )
     )
   ),
-  
+
   # DEMOGRAPHICS PAGES
-  
+
   # Demographics - Race and Ethnicity
   div(
     id = "demographics-race-ethnicity",
     class = "content-page",
-    
+
     h1("Race and Ethnicity"),
     p("Population by race and Hispanic or Latino heritage."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -583,7 +607,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -592,15 +616,15 @@ div(
       )
     )
   ),
-  
+
   # Demographics - Age
   div(
     id = "demographics-age",
     class = "content-page",
-    
+
     h1("Age"),
     p("Population data by age groups."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -609,7 +633,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -618,15 +642,15 @@ div(
       )
     )
   ),
-  
-  # Demographics - Household Type  
+
+  # Demographics - Household Type
   div(
     id = "demographics-household-type",
     class = "content-page",
-    
+
     h1("Household Type"),
     p("Relationships of people living under the same roof."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -635,7 +659,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -644,15 +668,15 @@ div(
       )
     )
   ),
-  
+
   # Demographics - Household Size
   div(
     id = "demographics-household-size",
     class = "content-page",
-    
+
     h1("Household Size"),
     p("Number of persons per household."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -661,7 +685,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -670,17 +694,17 @@ div(
       )
     )
   ),
-  
+
   # ECONOMICS PAGES
-  
+
   # Economics - Household Income
   div(
     id = "economics-household-income",
     class = "content-page",
-    
+
     h1("Household Income"),
     p("Income by tenure, age, race and ethnicity."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -689,7 +713,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -698,15 +722,15 @@ div(
       )
     )
   ),
-  
+
   # Economics - Poverty
   div(
     id = "economics-poverty",
     class = "content-page",
-    
+
     h1("Poverty"),
     p("Poverty rates by age, race and ethnicity."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -715,7 +739,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -724,15 +748,15 @@ div(
       )
     )
   ),
-  
+
   # Economics - Employment
   div(
     id = "economics-employment",
     class = "content-page",
-    
+
     h1("Employment"),
     p("Job levels, unemployment rates, and jobs-housing ratios."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -741,7 +765,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -750,17 +774,17 @@ div(
       )
     )
   ),
-  
+
   # INVENTORY PAGES
-  
+
   # Inventory - Housing Production
   div(
     id = "inventory-housing-production",
     class = "content-page",
-    
+
     h1("Housing Production"),
     p("Building permits by structure type."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -769,7 +793,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -778,15 +802,15 @@ div(
       )
     )
   ),
-  
+
   # Inventory - Housing Age
   div(
     id = "inventory-housing-age",
     class = "content-page",
-    
+
     h1("Housing Age"),
     p("Housing stock by tenure and year built."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -795,7 +819,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -804,15 +828,15 @@ div(
       )
     )
   ),
-  
+
   # Inventory - Housing Characteristics
   div(
     id = "inventory-housing-characteristics",
     class = "content-page",
-    
+
     h1("Housing Characteristics"),
     p("Physical characteristics of housing stock."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -821,7 +845,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -830,15 +854,15 @@ div(
       )
     )
   ),
-  
+
   # Inventory - Overcrowding
   div(
     id = "inventory-overcrowding",
     class = "content-page",
-    
+
     h1("Overcrowding"),
     p("Number of persons per room."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -847,7 +871,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -856,17 +880,17 @@ div(
       )
     )
   ),
-  
+
   # HOMEOWNERSHIP PAGES
-  
+
   # Homeownership - Rate
   div(
     id = "homeownership-rate",
     class = "content-page",
-    
+
     h1("Homeownership Rate"),
     p("Share of homeowners by age, race and ethnicity."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -875,7 +899,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -884,15 +908,15 @@ div(
       )
     )
   ),
-  
+
   # Homeownership - Sales
   div(
     id = "homeownership-sales",
     class = "content-page",
-    
+
     h1("Home Sales"),
     p("For-sale prices and inventory trends."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -901,7 +925,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -910,15 +934,15 @@ div(
       )
     )
   ),
-  
+
   # Homeownership - HPI
   div(
     id = "homeownership-hpi",
     class = "content-page",
-    
+
     h1("House Price Index"),
     p("Historic-to-present Federal Housing Finance Agency HPI."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -927,7 +951,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -936,15 +960,15 @@ div(
       )
     )
   ),
-  
+
   # Homeownership - Mortgages
   div(
     id = "homeownership-mortgages",
     class = "content-page",
-    
+
     h1("Mortgages"),
     p("Loan originations and denials by race and ethnicity."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -953,7 +977,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -962,17 +986,17 @@ div(
       )
     )
   ),
-  
+
   # RENTAL PAGES
-  
+
   # Rental - Rent
   div(
     id = "rental-rent",
     class = "content-page",
-    
+
     h1("Rent"),
     p("Gross rent averages and spread."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -981,7 +1005,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -990,15 +1014,15 @@ div(
       )
     )
   ),
-  
+
   # Rental - Vacancy
   div(
     id = "rental-vacancy",
     class = "content-page",
-    
+
     h1("Rental Vacancy"),
     p("Vacancy rates for rental properties."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -1007,7 +1031,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -1016,15 +1040,15 @@ div(
       )
     )
   ),
-  
+
   # Rental - Assisted
   div(
     id = "rental-assisted",
     class = "content-page",
-    
+
     h1("Assisted Rentals"),
     p("Homes with dedicated public subsidies."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -1033,7 +1057,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -1042,17 +1066,17 @@ div(
       )
     )
   ),
-  
+
   # AFFORDABILITY PAGES
-  
+
   # Affordability - Cost Burden
   div(
     id = "affordability-cost-burden",
     class = "content-page",
-    
+
     h1("Housing Cost Burden"),
     p("Cost burden by income, race and ethnicity."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -1061,7 +1085,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -1070,15 +1094,15 @@ div(
       )
     )
   ),
-  
+
   # Affordability - Gap
   div(
     id = "affordability-gap",
     class = "content-page",
-    
+
     h1("Rental Housing Gap"),
     p("Affordability of current supply by income."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -1087,7 +1111,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -1096,15 +1120,15 @@ div(
       )
     )
   ),
-  
+
   # Affordability - AMI
   div(
     id = "affordability-ami",
     class = "content-page",
-    
+
     h1("HUD AMI Limits"),
     p("Income limits used by affordable housing programs."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -1113,7 +1137,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -1122,17 +1146,17 @@ div(
       )
     )
   ),
-  
+
   # INSTABILITY PAGES
-  
+
   # Instability - Homelessness
   div(
     id = "instability-homelessness",
     class = "content-page",
-    
+
     h1("Homelessness"),
     p("Point-in-Time homelessness for Continuum of Care regions."),
-    
+
     div(
       class = "app-container",
       tags$iframe(
@@ -1141,7 +1165,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -1150,18 +1174,18 @@ div(
       )
     )
   ),
-  
+
   # ECONOMIC IMPACT CALCULATORS
-  
+
   # Calculators - New Construction
   div(
     id = "calculators-new-construction",
     class = "content-page",
-    
+
     h1("New Construction Calculator"),
     p("Estimate job and economic growth from new construction."),
     p("The Virginia Center for Housing Research developed these calculators to estimate the economic impact of housing activity on local economies."),
-    
+
     div(
       class = "app-container",
       div(class = "loading-overlay loading", "Loading calculator..."),
@@ -1171,7 +1195,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
@@ -1180,16 +1204,16 @@ div(
       )
     )
   ),
-  
+
   # Calculators - Renovation
   div(
     id = "calculators-renovation",
     class = "content-page",
-    
+
     h1("Renovation Calculator"),
     p("Estimate job and economic growth from major rehab projects."),
     p("The Virginia Center for Housing Research developed these calculators to estimate the economic impact of housing activity on local economies."),
-    
+
     div(
       class = "app-container",
       div(class = "loading-overlay loading", "Loading calculator..."),
@@ -1199,7 +1223,7 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
-    
+
     div(class = "resources-section",
       h3("Data Sources"),
       div(class = "data-sources",
