@@ -453,11 +453,28 @@ body {
   padding: 0 !important;
 }
 
+// Main dashboard layout fix
+.dashboard .dashboard-sidebar {
+  width: 340px !important;
+  min-width: 340px !important;
+  flex-shrink: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.dashboard .dashboard-page {
+  margin-left: 340px !important;
+  width: calc(100% - 340px) !important;
+  min-height: 100vh;
+}
+
 // Content area styling
 .content-area {
   background-color: white;
   min-height: 100vh;
-  flex: 1;
   padding: 2rem 4rem !important;
   display: flex;
   justify-content: center;
@@ -494,6 +511,14 @@ body {
       line-height: 1.6;
       margin-bottom: 1rem;
       color: #333;
+      width: 100%;
+      clear: both;
+    }
+
+    // Prevent text wrapping around iframes
+    h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+      clear: both;
+      float: none !important;
     }
 
     .app-container {
@@ -511,6 +536,8 @@ body {
         overflow: hidden;
         scrolling: no;
         display: block;
+        float: none !important;
+        clear: both;
       }
     }
 

@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: docs
+
+format:
+  dashboard:
+    logo: "www/hfv_rgb_logo.png"
+    theme: 
+      - default
+      - www/custom.scss
+    nav-buttons: []
+    fillable: true
+    css: www/dashboard.css
+    favicon: "www/favicon-32x32.png"
+    include-in-header:
+      - text: |
+          <link rel="icon" type="image/png" sizes="32x32" href="www/favicon-32x32.png">
+
+website:
+  title: "Sourcebook"
+  navbar:
+    title: false
+    logo: "www/hfv_rgb_logo.png"
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto
