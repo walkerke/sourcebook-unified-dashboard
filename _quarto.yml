@@ -8,8 +8,9 @@ format:
     theme: 
       - default
       - www/custom.scss
-    nav-buttons: [github]
+    nav-buttons: []
     fillable: true
+    expandable: false
     css: www/dashboard.css
     favicon: "www/favicon-32x32.png"
     include-in-header:

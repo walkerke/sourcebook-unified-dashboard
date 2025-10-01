@@ -56,9 +56,9 @@ header,
   margin: 0 !important;
 }
 
-// Move collapse toggle to the right only when sidebar is expanded
-.collapse-toggle[aria-expanded="true"] {
-  left: 350px !important;
+// Hide collapse toggle completely - we don't want collapsible sidebar
+.collapse-toggle {
+  display: none !important;
 }
 
 // Professional dashboard styling
@@ -602,4 +602,63 @@ body {
 a:focus, button:focus, input:focus, select:focus {
   outline: 2px solid $hfv-teal;
   outline-offset: 2px;
+}
+
+// Fullscreen map support
+.content-page.fullscreen-map {
+  // When active, take full available space
+  &.active {
+    position: fixed !important;
+    top: 0 !important;
+    left: 340px !important; // Fixed sidebar width
+    right: 0 !important;
+    bottom: 0 !important;
+    width: calc(100vw - 340px) !important;
+    height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+    z-index: 100;
+    display: block !important;
+    background: white;
+    
+    iframe {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border: none !important;
+    }
+  }
+}
+
+// Disable ALL card expansion features
+.card-header .card-expand-btn,
+.bslib-card-title .bslib-full-screen-enter {
+  display: none !important;
+}
+
+// Override Quarto's expandable card behavior
+.bslib-card[data-full-screen="true"],
+.card[aria-expanded="true"] {
+  position: relative !important;
+  z-index: auto !important;
+  max-width: none !important;
+}
+
+// Ensure content area behaves correctly with fullscreen maps
+.content-area:has(.fullscreen-map.active) {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+// Override parent column when fullscreen map is active
+.column:has(.fullscreen-map.active) {
+  padding: 0 !important;
+  overflow: hidden !important;
+  
+  > .card, > .bslib-card {
+    display: none !important; // Hide outer card wrapper when fullscreen
+  }
 }

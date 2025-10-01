@@ -6,6 +6,8 @@ format:
       - www/custom.scss
     nav-buttons: []
     fillable: true
+    expandable: false
+    orientation: columns
 ---
 
 ## {.sidebar}
@@ -450,8 +452,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://walkerke-total-pop.share.connect.posit.cloud/",
-        src = "https://walkerke-total-pop.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://01995867-e433-1564-bd66-c8328c2b3699.share.connect.posit.cloud/",
+        src = "https://01995867-e433-1564-bd66-c8328c2b3699.share.connect.posit.cloud/?geo=state",
         width = "100%",
         scrolling = "no",
         height = "70vh",
@@ -467,8 +469,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://walkerke-total-pop-chg.share.connect.posit.cloud/",
-        src = "https://walkerke-total-pop-chg.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://0199586a-d312-448b-d02a-0e0545036fcb.share.connect.posit.cloud/",
+        src = "https://0199586a-d312-448b-d02a-0e0545036fcb.share.connect.posit.cloud/?geo=state",
         width = "100%",
         scrolling = "no",
         height = "70vh",
@@ -492,8 +494,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://walkerke-pop-change.share.connect.posit.cloud/",
-        src = "https://walkerke-pop-change.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://01995865-9f0a-faf9-c10c-b7e24fd7bdfc.share.connect.posit.cloud/",
+        src = "https://01995865-9f0a-faf9-c10c-b7e24fd7bdfc.share.connect.posit.cloud/?geo=state",
         width = "100%",
         scrolling = "no",
         height = "70vh",
@@ -530,12 +532,12 @@ div(
     )
   ),
 
-  # Inventory - Housing Type (detailed example)
+  # Inventory - Housing Type
   div(
     id = "inventory-housing-type",
     class = "content-page",
 
-    h1("Housing Type by Tenure"),
+    h1("Housing Type"),
 
     p("The dashboards on this page break down housing stock by the number of homes within each building. For example, a 1-unit residential building is a single-family home, while a 5-unit residential building is a small apartment complex. These data are helpful in understanding the makeup of a community's housing supply, overall density, and construction trends."),
 
@@ -556,12 +558,11 @@ div(
 
     p("Data is available at the state, CBSA, and locality level."),
 
-    p(tags$strong("NOTE:"), " The American Community Survey also includes an 'Other' category for certain housing types. These homes include boats, recreational vehicles (RVs), vans, and all other units that do not fall into one of the above categories. We have omitted this category because the share of these 'Other' units is insignificant (less than one percent) across all geographies in Virginia."),
-
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-housing-type-app.connect.posit.cloud/",
+        `data-base-url` = "https://example-housing-type.connect.posit.cloud/",
+        src = "https://example-housing-type.connect.posit.cloud/?geo=state",
         width = "100%",
         height = "70vh",
         frameborder = "0",
@@ -570,21 +571,27 @@ div(
       )
     ),
 
+    p(tags$strong("NOTE:"), " The American Community Survey also includes an 'Other' category for certain housing types. These homes include boats, recreational vehicles (RVs), vans, and all other units that do not fall into one of the above categories. We have omitted this category because the share of these 'Other' units is insignificant (less than one percent) across all geographies in Virginia."),
+
     div(
       class = "resources-section",
-      h3("Additional Resources"),
-      p(tags$a("How Virginia communities are encouraging 'Missing Middle Housing'",
-               href = "#", target = "_blank"), " - Planetizen"),
+      h3("Additional resources"),
 
-      h3("Data Sources"),
+      p(tags$strong("Planetizen")),
+      tags$ul(
+        tags$li(tags$a("How Virginia communities are encouraging 'Missing Middle Housing'",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(
         class = "data-sources",
         h4("American Community Survey"),
         p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
         p("This section uses data from one ACS table:"),
         p(tags$strong("Table B25032:"), " Tenure by Units in Structure"),
-        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error."),
-        p("The data contained in Sourcebook is intended for informational, educational and research uses. The information may not be used for commercial purposes or re-marketed. Any reproduction and distribution of this information must clearly identify HousingForward Virginia and Sourcebook as the provider of the information.")
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -597,22 +604,75 @@ div(
     class = "content-page",
 
     h1("Race and Ethnicity"),
-    p("Population by race and Hispanic or Latino heritage."),
+
+    p("The dashboards on this page break down population data by race and ethnicity. This information helps advocates and practitioners understand demographic shifts in their community to effectively orient policy and programs for housing and other related services."),
+
+    p("For an explanation of racial and ethnicity terms, please visit our Sourcebook data dictionary ",
+      tags$a("here", href = "#", target = "_blank"), "."),
+
+    h2("Current population by race and ethnicity"),
+
+    p("This dashboard shows population by race and ethnicity. These are estimates and are therefore the most recent representation of a community's diversity currently available."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-race-ethnicity.connect.posit.cloud/",
+        `data-base-url` = "https://01995866-b6f0-650c-a4a2-67ac16b614a7.share.connect.posit.cloud/",
+        src = "https://01995866-b6f0-650c-a4a2-67ac16b614a7.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
+    p(tags$em("The 2020 Census was greatly impacted by the pandemic, as well as the use of differential privacy. The Demographics Research Group at the University of Virginia's Weldon Cooper Center advises data users to treat 2020 Census numbers with caution. But overall, they find that 2020 Census data \"tends to be more reliable for larger areas and populations whereas in Virginia's smaller localities, data errors and distortions are much more common.\"")),
+
+    h2("Population change by race and ethnicity"),
+
+    p("This dashboard shows changes in population by race and ethnicity. These are estimates and are therefore the most recent representation of a community's population currently available."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-race-ethnicity-change.connect.posit.cloud/",
+        src = "https://example-race-ethnicity-change.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    p(tags$em("The greater-than-expected rise in the non-white population—and commensurate shrinking of the white population—surprised researchers when the 2020 Census results were released.")),
+
+    p(tags$em("This phenomenon is very likely in part because of the changing ways Americans are choosing to identify their race and ethnicity.")),
+
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Brookings Institute")),
+      tags$ul(
+        tags$li(tags$a("The nation is diversifying even faster than predicted, according to new census data",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("U.S. Census Bureau")),
+      tags$ul(
+        tags$li(tags$a("2020 U.S. population more racially and ethnically diverse than measured in 2010",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Population estimates by race and ethnicity from the U.S. Census Bureau.")
+        h4("Census Population Estimates Program (PEP)"),
+        p("Annual estimates of total population released by the U.S. Census Bureau. Available at locality level from 2010 to 2019. Estimates by age, race, and ethnicity also available, along with components of population change.")
+      ),
+
+      div(class = "data-sources",
+        h4("2020 Decennial Census"),
+        p("Initial data from the 2020 Decennial Census is available in the PL 94-171 Redistricting summary file. As of February 2022, we use this data to append 2020 population counts onto the PEP time series data through 2019. Complete 2010 to 2020 Intercensal Estimates will be published in late 2022.")
       )
     )
   ),
@@ -623,22 +683,75 @@ div(
     class = "content-page",
 
     h1("Age"),
-    p("Population data by age groups."),
+
+    p("The dashboards on this page break down population data by age groups. The amounts and relative shares of children, young adults, middle-age adults, and seniors within a community all significantly impact its different housing needs."),
+
+    h2("Population by age group"),
+
+    p("This dashboard shows the most recent estimates broken down into ten age groups."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://walkerke-dem-age.share.connect.posit.cloud/",
+        `data-base-url` = "https://0199585d-5f2f-e33d-accc-1f6785170301.share.connect.posit.cloud/",
+        src = "https://0199585d-5f2f-e33d-accc-1f6785170301.share.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Change in population by age group"),
+
+    p("This dashboard shows changes in population by age group. Data for 2010 is from that year's Decennial Census counts; all other years use estimates from the Census Bureau's Population Estimates Program."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-age-change.connect.posit.cloud/",
+        src = "https://example-age-change.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("American Association of Retired Persons (AARP)")),
+      tags$ul(
+        tags$li(tags$a("Despite pandemic, percentage of older adults who want to age in place stays steady",
+                      href = "#", target = "_blank")),
+        tags$li(tags$a("Preparing for an aging population",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("Brookings Institute")),
+      tags$ul(
+        tags$li(tags$a("Millennial growth and \"footprints\" are greatest in the South and West",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("Pew Research Group")),
+      tags$ul(
+        tags$li(tags$a("Millennials overtake Baby Boomers as America's largest generation",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("U.S. Census Bureau")),
+      tags$ul(
+        tags$li(tags$a("By 2030, all Baby Boomers will be age 65 or older",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Age distribution data from the U.S. Census Bureau.")
+        h4("Census Population Estimates Program (PEP)"),
+        p("Annual estimates of total population released by the U.S. Census Bureau. Available at locality level from 2010 to 2022. Estimates by age, race, and ethnicity also available, along with components of population change.")
       )
     )
   ),
@@ -649,22 +762,77 @@ div(
     class = "content-page",
 
     h1("Household Type"),
-    p("Relationships of people living under the same roof."),
+
+    p("The dashboards on this page break down the population based on the types of households they live in and the people they share their homes with. These data are helpful in understanding the different types, sizes, and locations of homes that a community's population may need."),
+
+    h2("Households by type"),
+
+    p("This dashboard shows households by type, depending on whether the householder lives with a partner or not, and whether children, other relatives, or nonrelatives are present. These categories include:"),
+
+    p(tags$strong("Married or cohabitating couples"), ", by whether they live…"),
+    tags$ul(
+      tags$li("With their own children, or"),
+      tags$li("Without their own children, because they do not have any, or because they are grown and live elsewhere;")
+    ),
+
+    p(tags$strong("Householders with no partners"), ", by whether they live…"),
+    tags$ul(
+      tags$li("With their own children,"),
+      tags$li("With relatives but none of their own children, because they do not have any, or because they are grown and live elsewhere,"),
+      tags$li("With only nonrelatives present, such as friends or roommates, or"),
+      tags$li("Alone, with no one else.")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-household-type.connect.posit.cloud/",
+        `data-base-url` = "https://01995862-6365-88ce-d5cd-2c9dd0614c75.share.connect.posit.cloud/",
+        src = "https://01995862-6365-88ce-d5cd-2c9dd0614c75.share.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Living arrangements of adults"),
+
+    p("This dashboard shows the types of persons adults over the age of 18 share their homes with, including partners, parents, other relatives, and nonrelatives. This data does not consider the presence of any children the adult may have."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://01995863-91fb-44cc-f0da-9cb63b08693c.share.connect.posit.cloud/",
+        src = "https://01995863-91fb-44cc-f0da-9cb63b08693c.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Pew Research Group")),
+      tags$ul(
+        tags$li(tags$a("A majority of young adults in the U.S. live with their parents for the first time since the Great Depression",
+                      href = "#", target = "_blank")),
+        tags$li(tags$a("Older people are more likely to live alone in the U.S. than elsewhere in the world",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Household composition data from the U.S. Census Bureau.")
+        h4("American Community Survey (ACS)"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from two ACS tables:"),
+        tags$ul(
+          tags$li(tags$strong("Table B11012:"), " Households by Type"),
+          tags$li(tags$strong("Table B09021:"), " Living Arrangements of Adults 18 Years and Over by Age")
+        ),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -675,22 +843,67 @@ div(
     class = "content-page",
 
     h1("Household Size"),
-    p("Number of persons per household."),
+
+    p("The dashboards on this page break down the households by the number of people in them, including all adults and children. These data are helpful in understanding the different types, sizes, and locations of homes that a community's population may need."),
+
+    h2("Households by size"),
+
+    p("This dashboard shows households by size. The label on the 2023 values show the percent change in the number of households of that size from 2010."),
+
+    p("Data is available at the state, CBSA, and locality level. Use the filter to view all households, owner-occupied households, or renter-occupied households."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-household-size.connect.posit.cloud/",
+        `data-base-url` = "https://01995882-b14f-6863-40d9-8d604c2eba4e.share.connect.posit.cloud/",
+        src = "https://01995882-b14f-6863-40d9-8d604c2eba4e.share.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Average household size"),
+
+    p("This dashboard shows the average household size for all households, owner-occupied households, and renter-occupied households. This value is calculated by dividing the total population in occupied housing units by the number of households."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://01995881-0275-fa1e-95de-271d11ce0d79.share.connect.posit.cloud/",
+        src = "https://01995881-0275-fa1e-95de-271d11ce0d79.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Pew Research Group")),
+      tags$ul(
+        tags$li(tags$a("The number of people in the average U.S. household is going up for the first time in over 160 years",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("Population Reference Bureau (PRB)")),
+      tags$ul(
+        tags$li(tags$a("U.S. household composition shifts as population grows older; more young adults with parents",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Household size distribution from the U.S. Census Bureau.")
+        h4("American Community Survey (ACS)"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from two ACS tables:"),
+        tags$ul(
+          tags$li(tags$strong("Table B25009:"), " Tenure by Household Size"),
+          tags$li(tags$strong("Table B25010:"), " Average Household Size of Occupied Housing Units by Tenure")
+        ),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error. Data from the 2006-2010 5-year estimates are also used as a baseline to show change over time.")
       )
     )
   ),
@@ -703,22 +916,101 @@ div(
     class = "content-page",
 
     h1("Household Income"),
-    p("Income by tenure, age, race and ethnicity."),
+
+    p("The dashboards on this page show household income data broken down by key demographic characteristics. Income levels are fundamental to understanding housing affordability and community economic health, as they determine how much households can spend on housing while maintaining their other basic needs."),
+
+    h2("Household income distribution by income level"),
+
+    p("This dashboard shows the distribution of household income levels across different income categories. It provides insights into the income inequality within communities and helps identify areas where income disparities may exist."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-household-income.connect.posit.cloud/",
+        `data-base-url` = "https://019958bd-3736-c7fc-e161-14a3629c9446.share.connect.posit.cloud/",
+        src = "https://019958bd-3736-c7fc-e161-14a3629c9446.share.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Household income by tenure"),
+
+    p("This dashboard shows median household income levels for owners, renters, and all households combined. Income differences between owners and renters often reflect broader patterns of wealth and housing access within communities."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://019958d0-bdde-42e2-b36b-e41dafdfca68.share.connect.posit.cloud/",
+        src = "https://019958d0-bdde-42e2-b36b-e41dafdfca68.share.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Household income by age of householder"),
+
+    p("This dashboard shows median household income by the age of the householder. Income typically varies significantly across age groups, with younger and older households often having lower incomes than middle-aged households."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://019958c7-905d-452b-c918-e3153cb23e31.share.connect.posit.cloud/",
+        src = "https://019958c7-905d-452b-c918-e3153cb23e31.share.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Household income by race and ethnicity"),
+
+    p("This dashboard shows median household income by race and ethnicity of the householder. These disparities often reflect historical and ongoing patterns of discrimination and unequal access to economic opportunities."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://019958cd-7b2d-5e38-1952-328a68147751.share.connect.posit.cloud/",
+        src = "https://019958cd-7b2d-5e38-1952-328a68147751.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("U.S. Census Bureau")),
+      tags$ul(
+        tags$li(tags$a("Income and Poverty in the United States",
+                      href = "https://www.census.gov/topics/income-poverty/income.html", target = "_blank"))
+      ),
+
+      p(tags$strong("Pew Research Center")),
+      tags$ul(
+        tags$li(tags$a("Trends in income and wealth inequality",
+                      href = "https://www.pewresearch.org/social-trends/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Household income data from the U.S. Census Bureau.")
+        h4("American Community Survey (ACS)"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from multiple ACS tables:"),
+        tags$ul(
+          tags$li(tags$strong("Table B19013:"), " Median Household Income in the Past 12 Months"),
+          tags$li(tags$strong("Table B25119:"), " Median Household Income by Tenure"),
+          tags$li(tags$strong("Table B19049:"), " Median Household Income by Age of Householder"),
+          tags$li(tags$strong("Table B19013A-I:"), " Median Household Income by Race and Ethnicity")
+        ),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -729,22 +1021,61 @@ div(
     class = "content-page",
 
     h1("Poverty"),
-    p("Poverty rates by age, race and ethnicity."),
+
+    p("The dashboards on this page show poverty rates broken down by key demographic characteristics. Poverty data helps identify which populations are most at risk of housing instability and can inform targeted policy interventions and resource allocation."),
+
+    p("The federal poverty level is determined by the U.S. Department of Health and Human Services and varies by household size. In 2023, the poverty threshold for a family of four was $30,000 in annual income."),
+
+    h2("Poverty rate by age and race"),
+
+    p("This dashboard shows poverty rates across different racial & ethnic groups and different age groups. Children and seniors often experience higher rates of poverty, which has implications for family housing stability and aging-in-place needs. These disparities also reflect historical and systemic barriers to economic opportunity and highlight the intersection of poverty and racial equity in housing access."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-poverty.connect.posit.cloud/",
+        `data-base-url` = "https://019958d3-0a04-4efe-29e3-e35f34a53ed1.share.connect.posit.cloud/",
+        src = "https://019958d3-0a04-4efe-29e3-e35f34a53ed1.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
+
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("U.S. Department of Health and Human Services")),
+      tags$ul(
+        tags$li(tags$a("Federal Poverty Guidelines",
+                      href = "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines", target = "_blank"))
+      ),
+
+      p(tags$strong("Children's Defense Fund")),
+      tags$ul(
+        tags$li(tags$a("Child poverty in Virginia",
+                      href = "https://www.childrensdefense.org/state/virginia/", target = "_blank"))
+      ),
+
+      p(tags$strong("Virginia Poverty Law Center")),
+      tags$ul(
+        tags$li(tags$a("Poverty data and advocacy resources",
+                      href = "https://vplc.org/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Poverty status data from the U.S. Census Bureau.")
+        h4("American Community Survey (ACS)"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from multiple ACS tables:"),
+        tags$ul(
+          tags$li(tags$strong("Table S1701:"), " Poverty Status in the Past 12 Months"),
+          tags$li(tags$strong("Table B17001:"), " Poverty Status by Sex and Age"),
+          tags$li(tags$strong("Table B17001A-I:"), " Poverty Status by Race and Ethnicity")
+        ),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -755,22 +1086,95 @@ div(
     class = "content-page",
 
     h1("Employment"),
-    p("Job levels, unemployment rates, and jobs-housing ratios."),
+
+    p("The dashboards on this page show employment and unemployment data across Virginia. Jobs and housing are deeply intertwined—insufficient housing can hinder economic growth by limiting where workers can afford to live, while job growth without corresponding housing supply can lead to increased commute times and housing affordability challenges."),
+
+    h2("Employment levels"),
+
+    p("This dashboard shows monthly employment levels across Virginia. Employment data is presented on a non-seasonally adjusted basis, meaning it reflects actual job counts without statistical adjustments for typical seasonal patterns."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-employment.connect.posit.cloud/",
+        `data-base-url` = "https://example-employment-levels.connect.posit.cloud/",
+        src = "https://example-employment-levels.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Unemployment rate"),
+
+    p("This dashboard displays the percentage of the labor force that is without jobs but actively seeking work. The unemployment rate is a key economic indicator that affects housing demand and affordability in local communities."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-unemployment-rate.connect.posit.cloud/",
+        src = "https://example-unemployment-rate.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Jobs-housing growth comparison"),
+
+    p("This dashboard examines how job growth compares to housing supply growth over time. When job growth significantly outpaces housing production, communities often experience increased housing costs and longer commutes as workers are forced to live farther from employment centers."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-jobs-housing-ratio.connect.posit.cloud/",
+        src = "https://example-jobs-housing-ratio.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Bureau of Labor Statistics")),
+      tags$ul(
+        tags$li(tags$a("Local Area Unemployment Statistics",
+                      href = "https://www.bls.gov/lau/", target = "_blank")),
+        tags$li(tags$a("Employment Situation Summary",
+                      href = "https://www.bls.gov/news.release/empsit.nr0.htm", target = "_blank"))
+      ),
+
+      p(tags$strong("Virginia Employment Commission")),
+      tags$ul(
+        tags$li(tags$a("Virginia labor market data",
+                      href = "https://www.vec.virginia.gov/", target = "_blank"))
+      ),
+
+      p(tags$strong("Federal Reserve")),
+      tags$ul(
+        tags$li(tags$a("Regional economic data and analysis",
+                      href = "https://www.federalreserve.gov/econres/regional-data.htm", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("Bureau of Labor Statistics"),
-        p("Employment and unemployment data from federal and state labor statistics.")
+        h4("Bureau of Labor Statistics Local Area Unemployment Statistics (LAUS)"),
+        p("Monthly employment and unemployment data for states, metropolitan areas, and localities. Data includes both seasonally adjusted and non-seasonally adjusted series.")
+      ),
+
+      div(class = "data-sources",
+        h4("Census Population Estimates Program (PEP)"),
+        p("Annual population estimates used in calculating employment-to-population ratios and understanding demographic context for labor market trends.")
+      ),
+
+      div(class = "data-sources",
+        h4("Census Building Permits Survey"),
+        p("Housing production data used in jobs-housing ratio calculations to compare employment growth with housing supply growth.")
       )
     )
   ),
@@ -783,22 +1187,56 @@ div(
     class = "content-page",
 
     h1("Housing Production"),
-    p("Building permits by structure type."),
+
+    p("This page includes dashboards that show housing production trends across Virginia using annual residential building permits."),
+
+    h2("Annual building permits by structure type"),
+
+    p("This dashboard shows the annual number of residential building permits issued by local governments in Virginia."),
+
+    p("Use the filter to select between some or all the following building types:"),
+
+    tags$ul(
+      tags$li("1-unit buildings (single-family homes)"),
+      tags$li("2-unit buildings (duplexes)"),
+      tags$li("3-4 unit buildings (triplexes and quadraplexes)"),
+      tags$li("5+ unit buildings (larger apartment buildings)")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
         `data-base-url` = "https://example-housing-production.connect.posit.cloud/",
+        src = "https://example-housing-production.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Business Insider")),
+      tags$ul(
+        tags$li(tags$a("Housing in the US has not been able to keep up with buyer demand over the past decade",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("Homebuilder associations")),
+      tags$ul(
+        tags$li(tags$a("Home Builders Association of Virginia",
+                      href = "https://www.hbav.com/", target = "_blank")),
+        tags$li(tags$a("National Association of Home Builders",
+                      href = "https://www.nahb.org/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("U.S. Census Bureau Building Permits Survey"),
-        p("New construction authorized by building permits.")
+        h4("Census Building Permits Survey"),
+        p("Total number of building permits issued by localities, collected and released by the U.S. Census Bureau. Data is available annually, year-to-date, and monthly. Available geographies include states, selected metropolitan areas, localities and places.")
       )
     )
   ),
@@ -809,22 +1247,54 @@ div(
     class = "content-page",
 
     h1("Housing Age"),
-    p("Housing stock by tenure and year built."),
+
+    p("The dashboards on this page break down housing units by their age. This is represented by the reported year each home was built. These data are helpful in understanding historical production trends over time, as well as serving as a proxy for housing quality. Older homes generally require more maintenance to be safe and efficient."),
+
+    h2("Housing age by tenure"),
+
+    p("This dashboard shows the current supply of occupied housing units among owners, renters, and all households, broken down by the year each home was built. Years are grouped into ten categories: 1939 or earlier, eight decades from 1940 through 2009, 2010 to 2019, and 2020 or later."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
         `data-base-url` = "https://example-housing-age.connect.posit.cloud/",
+        src = "https://example-housing-age.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Bankrate")),
+      tags$ul(
+        tags$li(tags$a("America's housing stock is aging: That can mean good deals but hefty repair bills",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("Freddie Mac")),
+      tags$ul(
+        tags$li(tags$a("Where is the aging housing stock in the United States?",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("National Association of Home Builders (NAHB)")),
+      tags$ul(
+        tags$li(tags$a("Median age of housing stock by state varies by more than 35 years",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
         h4("American Community Survey"),
-        p("Year structure built data from the U.S. Census Bureau.")
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from one ACS table:"),
+        p(tags$strong("Table B25036:"), " Tenure by Year Structure Built"),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -835,22 +1305,54 @@ div(
     class = "content-page",
 
     h1("Housing Characteristics"),
-    p("Physical characteristics of housing stock."),
+
+    p("The dashboards on this page break down housing units by selected physical characteristics. These data are helpful in understanding the design and size of a community's housing stock, and whether that supply adequately meets the needs of the population."),
+
+    h2("Number of bedrooms by tenure"),
+
+    p("This dashboard shows the current supply of occupied housing units among owners, renters, and all households, broken down by the number of bedrooms each home contains."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
         `data-base-url` = "https://example-housing-characteristics.connect.posit.cloud/",
+        src = "https://example-housing-characteristics.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Curbed")),
+      tags$ul(
+        tags$li(tags$a("Why we can't build small homes anymore",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("Freddie Mac")),
+      tags$ul(
+        tags$li(tags$a("One of the most important challenges our industry will face: The significant shortage of starter homes",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("National Public Radio (NPR)")),
+      tags$ul(
+        tags$li(tags$a("The housing shortage is significant. It's acute for small, entry-level homes",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
         h4("American Community Survey"),
-        p("Housing unit characteristics from the U.S. Census Bureau.")
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from one ACS table:"),
+        p(tags$strong("Table B25042:"), " Tenure by Bedrooms"),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -861,22 +1363,56 @@ div(
     class = "content-page",
 
     h1("Overcrowding"),
-    p("Number of persons per room."),
+
+    p("The dashboards on this page break down households by the number of occupants per room. These data are helpful in understanding how many households are living in homes that are too small for them to live in comfortably. People living in overcrowded conditions are more likely to experience physical and mental health issues—including an increased likelihood of disease transmission."),
+
+    p("While definitions vary, the common \"overcrowded\" threshold is 1.0 persons per room and the \"very overcrowded\" threshold is 1.5 persons per room."),
+
+    h2("Overcrowded households by tenure"),
+
+    p("This dashboard shows the share of households that are overcrowded or very overcrowded among owners, renters, and all households."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
         `data-base-url` = "https://example-overcrowding.connect.posit.cloud/",
+        src = "https://example-overcrowding.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("U.S. Department of Housing and Urban Development")),
+      tags$ul(
+        tags$li(tags$a("Measuring Overcrowding in Housing (PDF)",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("Urban Institute")),
+      tags$ul(
+        tags$li(tags$a("America's Housing Is Getting More Crowded. How Will That Affect Children?",
+                      href = "#", target = "_blank"))
+      ),
+
+      p(tags$strong("National Multifamily Housing Council")),
+      tags$ul(
+        tags$li(tags$a("How Much is Overcrowding a Factor in COVID-19 Risk",
+                      href = "#", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
         h4("American Community Survey"),
-        p("Occupancy characteristics from the U.S. Census Bureau.")
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from one ACS table:"),
+        p(tags$strong("Table B25014:"), " Tenure by Occupants Per Room"),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -889,22 +1425,90 @@ div(
     class = "content-page",
 
     h1("Homeownership Rate"),
-    p("Share of homeowners by age, race and ethnicity."),
+
+    p("The dashboards on this page show homeownership rates across different demographic groups. Homeownership is often considered a pathway to building wealth and achieving housing stability, but access to homeownership varies significantly by age, race, ethnicity, and income level."),
+
+    h2("Homeownership rate by age"),
+
+    p("This dashboard shows homeownership rates by age group. Homeownership typically increases with age as people establish careers, increase earnings, and accumulate savings for down payments. However, younger generations have faced increasing barriers to homeownership in recent years."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-homeownership-rate.connect.posit.cloud/",
+        `data-base-url` = "https://example-homeownership-rate-age.connect.posit.cloud/",
+        src = "https://example-homeownership-rate-age.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Homeownership rate by race and ethnicity"),
+
+    p("This dashboard shows homeownership rates by race and ethnicity. Significant homeownership gaps persist across racial and ethnic groups, reflecting historical discrimination in lending, exclusionary zoning practices, and ongoing disparities in income and wealth."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-homeownership-rate-race.connect.posit.cloud/",
+        src = "https://example-homeownership-rate-race.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Overall homeownership rate trends"),
+
+    p("This dashboard shows overall homeownership rate trends over time, helping identify whether communities are becoming more or less accessible to potential homebuyers."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-homeownership-trends.connect.posit.cloud/",
+        src = "https://example-homeownership-trends.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("National Association of Realtors")),
+      tags$ul(
+        tags$li(tags$a("Profile of Home Buyers and Sellers",
+                      href = "https://www.nar.realtor/research-and-statistics", target = "_blank"))
+      ),
+
+      p(tags$strong("Urban Institute")),
+      tags$ul(
+        tags$li(tags$a("Housing Finance at a Glance",
+                      href = "https://www.urban.org/policy-centers/housing-finance-policy-center", target = "_blank"))
+      ),
+
+      p(tags$strong("Joint Center for Housing Studies")),
+      tags$ul(
+        tags$li(tags$a("The State of the Nation's Housing",
+                      href = "https://www.jchs.harvard.edu/state-nations-housing", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Housing tenure data from the U.S. Census Bureau.")
+        h4("American Community Survey (ACS)"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from multiple ACS tables:"),
+        tags$ul(
+          tags$li(tags$strong("Table B25003:"), " Tenure"),
+          tags$li(tags$strong("Table B25007:"), " Tenure by Age of Householder"),
+          tags$li(tags$strong("Table B25003A-I:"), " Tenure by Race and Ethnicity")
+        ),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -915,22 +1519,88 @@ div(
     class = "content-page",
 
     h1("Home Sales"),
-    p("For-sale prices and inventory trends."),
+
+    p("The dashboards on this page show for-sale home prices and inventory trends across Virginia. Home sales data provides insight into market conditions, affordability trends, and the balance between housing supply and demand."),
+
+    h2("Median home sale price"),
+
+    p("This dashboard shows median home sale prices over time. The median represents the middle price point, meaning half of homes sold for more and half sold for less. This metric helps track overall market trends and affordability changes."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-home-sales.connect.posit.cloud/",
+        `data-base-url` = "https://example-median-sales-price.connect.posit.cloud/",
+        src = "https://example-median-sales-price.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Home sales volume"),
+
+    p("This dashboard shows the number of homes sold over time. Sales volume indicates market activity levels and can reflect buyer confidence, financing availability, and inventory levels."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-sales-volume.connect.posit.cloud/",
+        src = "https://example-sales-volume.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Days on market and inventory"),
+
+    p("This dashboard shows how long homes typically stay on the market before selling and the available inventory of homes for sale. Shorter days on market and lower inventory levels typically indicate a seller's market with strong demand."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-market-conditions.connect.posit.cloud/",
+        src = "https://example-market-conditions.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Virginia Association of Realtors")),
+      tags$ul(
+        tags$li(tags$a("Virginia housing market statistics",
+                      href = "https://www.virginiarealtors.org/", target = "_blank"))
+      ),
+
+      p(tags$strong("National Association of Realtors")),
+      tags$ul(
+        tags$li(tags$a("Existing Home Sales data",
+                      href = "https://www.nar.realtor/research-and-statistics", target = "_blank"))
+      ),
+
+      p(tags$strong("Redfin and Zillow")),
+      tags$ul(
+        tags$li(tags$a("Real estate market data and trends",
+                      href = "https://www.redfin.com/news/data-center/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("Virginia Association of Realtors"),
-        p("Home sales and pricing data from local real estate markets.")
+        h4("Virginia Association of Realtors (VAR)"),
+        p("Monthly residential sales data including median sales prices, number of units sold, days on market, and active listings. Data represents sales reported through the Multiple Listing Service (MLS) systems across Virginia.")
+      ),
+
+      div(class = "data-sources",
+        h4("Real Estate Information Network (REIN)"),
+        p("Additional market data and analytics for Virginia real estate markets, including regional breakdowns and market trend analysis.")
       )
     )
   ),
@@ -941,22 +1611,86 @@ div(
     class = "content-page",
 
     h1("House Price Index"),
-    p("Historic-to-present Federal Housing Finance Agency HPI."),
+
+    p("The dashboards on this page show the Federal Housing Finance Agency (FHFA) House Price Index, which tracks changes in single-family home prices over time. Unlike median sales prices, the HPI measures price changes for the same types of properties over time, providing a clearer picture of market appreciation trends."),
+
+    p("The FHFA House Price Index is calculated using repeat sales and refinancing data on the same properties, which helps control for differences in the types of homes being sold. This makes it a valuable tool for understanding true price appreciation rather than changes in the mix of homes being sold."),
+
+    h2("Annual house price appreciation"),
+
+    p("This dashboard shows annual percentage changes in home prices based on the FHFA House Price Index. Positive values indicate price appreciation, while negative values indicate price declines."),
+
+    p("Data is available at the state, CBSA, and locality level where sufficient data exists."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-hpi.connect.posit.cloud/",
+        `data-base-url` = "https://example-hpi-annual.connect.posit.cloud/",
+        src = "https://example-hpi-annual.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Cumulative price appreciation since 2000"),
+
+    p("This dashboard shows cumulative price changes since 2000, indexed to 100 in the year 2000. This long-term view helps identify major market cycles, including the housing boom and bust of the 2000s and the recovery that followed."),
+
+    p("Data is available at the state, CBSA, and locality level where sufficient data exists."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-hpi-cumulative.connect.posit.cloud/",
+        src = "https://example-hpi-cumulative.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Quarterly house price trends"),
+
+    p("This dashboard shows quarterly HPI data, providing more frequent updates on price trends than annual data. Quarterly data can help identify emerging trends and seasonal patterns in local housing markets."),
+
+    p("Data is available at the state, CBSA, and locality level where sufficient data exists."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-hpi-quarterly.connect.posit.cloud/",
+        src = "https://example-hpi-quarterly.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Federal Housing Finance Agency")),
+      tags$ul(
+        tags$li(tags$a("House Price Index methodology",
+                      href = "https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx", target = "_blank")),
+        tags$li(tags$a("HPI Technical Documentation",
+                      href = "https://www.fhfa.gov/AboutUs/Reports/ReportDocuments/HPI_TechnicalDoc.pdf", target = "_blank"))
+      ),
+
+      p(tags$strong("S&P CoreLogic Case-Shiller Indices")),
+      tags$ul(
+        tags$li(tags$a("Alternative house price index methodology",
+                      href = "https://www.spglobal.com/spdji/en/index-family/indicators/sp-corelogic-case-shiller/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("Federal Housing Finance Agency"),
-        p("House Price Index data showing price changes over time.")
+        h4("Federal Housing Finance Agency (FHFA) House Price Index"),
+        p("The FHFA HPI is a weighted, repeat-sales index measuring average price changes in repeat sales or refinancings on the same properties. The index is calculated using data from Fannie Mae and Freddie Mac repeat mortgage transactions on single-family properties.")
+      ),
+
+      div(class = "data-sources",
+        h4("Geographic Coverage"),
+        p("The HPI is available at multiple geographic levels including national, state, metropolitan statistical area (MSA), and select county/locality levels. Coverage depends on sufficient transaction volume for reliable estimates.")
       )
     )
   ),
@@ -967,22 +1701,92 @@ div(
     class = "content-page",
 
     h1("Mortgages"),
-    p("Loan originations and denials by race and ethnicity."),
+
+    p("The dashboards on this page show mortgage lending patterns using data from the Home Mortgage Disclosure Act (HMDA). This data reveals important patterns in access to homeownership financing and helps identify potential disparities in lending practices."),
+
+    p("HMDA requires most mortgage lenders to report detailed information about mortgage applications, including borrower demographics, loan characteristics, and application outcomes. This transparency helps regulators and communities monitor fair lending practices."),
+
+    h2("Mortgage originations by race and ethnicity"),
+
+    p("This dashboard shows the number and characteristics of mortgage loans originated (approved and completed) by race and ethnicity of the borrower. Differences in origination patterns can reflect disparities in access to credit and homeownership opportunities."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-mortgages.connect.posit.cloud/",
+        `data-base-url` = "https://example-mortgage-originations.connect.posit.cloud/",
+        src = "https://example-mortgage-originations.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Mortgage denial rates by race and ethnicity"),
+
+    p("This dashboard shows mortgage application denial rates by race and ethnicity. Higher denial rates for certain groups, when controlling for other factors, may indicate potential discriminatory lending practices that limit access to homeownership."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-mortgage-denials.connect.posit.cloud/",
+        src = "https://example-mortgage-denials.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Loan characteristics and terms"),
+
+    p("This dashboard shows characteristics of originated mortgage loans, including loan amounts, interest rates, and loan-to-income ratios. These characteristics can vary significantly by borrower demographics and geographic area."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-loan-characteristics.connect.posit.cloud/",
+        src = "https://example-loan-characteristics.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Consumer Financial Protection Bureau (CFPB)")),
+      tags$ul(
+        tags$li(tags$a("HMDA Data and Documentation",
+                      href = "https://www.consumerfinance.gov/data-research/hmda/", target = "_blank")),
+        tags$li(tags$a("HMDA Data Browser",
+                      href = "https://ffiec.cfpb.gov/data-browser/", target = "_blank"))
+      ),
+
+      p(tags$strong("National Community Reinvestment Coalition")),
+      tags$ul(
+        tags$li(tags$a("HMDA analysis and fair lending resources",
+                      href = "https://ncrc.org/", target = "_blank"))
+      ),
+
+      p(tags$strong("Urban Institute")),
+      tags$ul(
+        tags$li(tags$a("Housing Finance at a Glance monthly chartbook",
+                      href = "https://www.urban.org/policy-centers/housing-finance-policy-center", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
         h4("Home Mortgage Disclosure Act (HMDA)"),
-        p("Mortgage lending data from the Consumer Financial Protection Bureau.")
+        p("The Home Mortgage Disclosure Act requires mortgage lenders to report public loan-level information about mortgage applications and originations. Data includes borrower demographics, loan characteristics, property location, and application outcomes. HMDA data is collected by the Federal Financial Institutions Examination Council (FFIEC) and made available by the Consumer Financial Protection Bureau.")
+      ),
+
+      div(class = "data-sources",
+        h4("Coverage and Limitations"),
+        p("HMDA data covers most mortgage lenders but has some limitations. Small lenders and certain types of loans may not be included. The data represents applications and originations but does not capture the full homebuying process or secondary market activity.")
       )
     )
   ),
@@ -995,22 +1799,100 @@ div(
     class = "content-page",
 
     h1("Rent"),
-    p("Gross rent averages and spread."),
+
+    p("The dashboards on this page show gross rent data across Virginia. Gross rent includes the contract rent plus the estimated monthly cost of utilities and services. Understanding rent levels and trends is essential for assessing housing affordability and market conditions for renters."),
+
+    h2("Median gross rent"),
+
+    p("This dashboard shows median gross rent levels over time. The median represents the middle rent amount, meaning half of rental units cost more and half cost less. This provides a stable measure of typical rent levels in different areas."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-rent.connect.posit.cloud/",
+        `data-base-url` = "https://example-median-rent.connect.posit.cloud/",
+        src = "https://example-median-rent.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Rent distribution by price range"),
+
+    p("This dashboard shows the distribution of rental units across different price ranges, helping to understand the availability of housing at different affordability levels. The data shows what share of the rental market is accessible to households with different income levels."),
+
+    p("Rent ranges include:"),
+
+    tags$ul(
+      tags$li("Less than $500"),
+      tags$li("$500 to $999"),
+      tags$li("$1,000 to $1,499"),
+      tags$li("$1,500 to $1,999"),
+      tags$li("$2,000 to $2,999"),
+      tags$li("$3,000 or more")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-rent-distribution.connect.posit.cloud/",
+        src = "https://example-rent-distribution.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Rent changes over time"),
+
+    p("This dashboard shows how median gross rent has changed over time, helping identify rent growth trends and periods of rapid rent increases. Significant rent growth can indicate supply constraints or increasing demand in local markets."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-rent-trends.connect.posit.cloud/",
+        src = "https://example-rent-trends.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Apartment List")),
+      tags$ul(
+        tags$li(tags$a("National rent reports and market data",
+                      href = "https://www.apartmentlist.com/research", target = "_blank"))
+      ),
+
+      p(tags$strong("National Multifamily Housing Council")),
+      tags$ul(
+        tags$li(tags$a("Rent payment and eviction data",
+                      href = "https://www.nmhc.org/research-insight/", target = "_blank"))
+      ),
+
+      p(tags$strong("RentData.org")),
+      tags$ul(
+        tags$li(tags$a("Affordable rental housing data and research",
+                      href = "https://www.rentdata.org/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Gross rent data from the U.S. Census Bureau.")
+        h4("American Community Survey (ACS)"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from multiple ACS tables:"),
+        tags$ul(
+          tags$li(tags$strong("Table B25064:"), " Median Gross Rent"),
+          tags$li(tags$strong("Table B25063:"), " Gross Rent")
+        ),
+        p("Gross rent is the contract rent plus the estimated monthly cost of utilities (electricity, gas, and water and sewer) and fuels (oil, coal, kerosene, wood, etc.) if these are paid by the renter (or paid for the renter by someone else).")
       )
     )
   ),
@@ -1021,22 +1903,102 @@ div(
     class = "content-page",
 
     h1("Rental Vacancy"),
-    p("Vacancy rates for rental properties."),
+
+    p("The dashboards on this page show rental vacancy rates across Virginia. Vacancy rates indicate the balance between rental housing supply and demand. Very low vacancy rates often signal tight rental markets that can lead to rapid rent increases, while very high vacancy rates may indicate oversupply or economic distress."),
+
+    p("A healthy rental market typically maintains vacancy rates between 5-8 percent, providing enough turnover for household mobility while maintaining stable rents. Vacancy rates below 5 percent often indicate supply shortages, while rates above 10 percent may signal oversupply or declining demand."),
+
+    h2("Rental vacancy rate"),
+
+    p("This dashboard shows the percentage of rental housing units that are vacant and available for rent. This includes units that are currently on the rental market but does not include units that are vacant for other reasons such as renovation or seasonal use."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-rental-vacancy.connect.posit.cloud/",
+        `data-base-url` = "https://example-rental-vacancy-rate.connect.posit.cloud/",
+        src = "https://example-rental-vacancy-rate.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Total vacant housing units"),
+
+    p("This dashboard shows all vacant housing units, including those for rent, for sale, sold but not yet occupied, rented but not yet occupied, and held for other reasons. This broader measure helps understand the total housing stock utilization."),
+
+    p("Vacant units are classified into several categories:"),
+
+    tags$ul(
+      tags$li(tags$strong("For rent:"), " Available on the rental market"),
+      tags$li(tags$strong("For sale:"), " Available for purchase"),
+      tags$li(tags$strong("Sold, not occupied:"), " Recently sold but buyer hasn't moved in"),
+      tags$li(tags$strong("Rented, not occupied:"), " Recently rented but tenant hasn't moved in"),
+      tags$li(tags$strong("Seasonal/recreational:"), " Used occasionally for recreation or seasonal occupancy"),
+      tags$li(tags$strong("Other vacant:"), " Held for other reasons including renovation")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-total-vacancy.connect.posit.cloud/",
+        src = "https://example-total-vacancy.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Vacancy trends over time"),
+
+    p("This dashboard shows how rental vacancy rates have changed over time, helping identify market trends and cycles. Declining vacancy rates often precede periods of rent growth, while increasing vacancy rates may signal economic challenges or new supply coming to market."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-vacancy-trends.connect.posit.cloud/",
+        src = "https://example-vacancy-trends.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("National Multifamily Housing Council")),
+      tags$ul(
+        tags$li(tags$a("Quarterly apartment market survey",
+                      href = "https://www.nmhc.org/research-insight/", target = "_blank"))
+      ),
+
+      p(tags$strong("Reis (Moody's Analytics)")),
+      tags$ul(
+        tags$li(tags$a("Commercial real estate data and analytics",
+                      href = "https://www.reis.com/", target = "_blank"))
+      ),
+
+      p(tags$strong("CoStar Group")),
+      tags$ul(
+        tags$li(tags$a("Commercial real estate market data",
+                      href = "https://www.costar.com/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Housing vacancy data from the U.S. Census Bureau.")
+        h4("American Community Survey (ACS)"),
+        p("The American Community Survey is an ongoing survey program of the U.S. Census Bureau. The ACS collects information about the nation's social, economic, housing, and demographic characteristics on an annual basis. This information provides the most-up-to-date estimates between decennial censuses."),
+        p("This section uses data from multiple ACS tables:"),
+        tags$ul(
+          tags$li(tags$strong("Table B25004:"), " Vacancy Status"),
+          tags$li(tags$strong("Table B25002:"), " Occupancy Status")
+        ),
+        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -1047,22 +2009,112 @@ div(
     class = "content-page",
 
     h1("Assisted Rentals"),
-    p("Homes with dedicated public subsidies."),
+
+    p("The dashboards on this page show rental housing units that receive public subsidies to reduce rent costs for low- and moderate-income households. According to the National Housing Preservation Database, over 171,000 rental homes in Virginia receive subsidies to lower their rents, representing a significant portion of the affordable housing stock."),
+
+    p("Assisted rental housing includes several major federal programs along with state and local initiatives. These programs are essential for providing housing opportunities for households that cannot afford market-rate rents."),
+
+    h2("Assisted rental units by program type"),
+
+    p("This dashboard shows assisted rental housing by program type. The Low-Income Housing Tax Credit (LIHTC) is the most common form of rental assistance in Virginia, with approximately 91,599 rental homes supported by LIHTCs provided by Virginia Housing."),
+
+    p("Major assisted housing programs include:"),
+
+    tags$ul(
+      tags$li(tags$strong("Low-Income Housing Tax Credit (LIHTC):"), " Properties developed with federal tax credit financing, typically affordable for 30+ years"),
+      tags$li(tags$strong("Housing Choice Vouchers (Section 8):"), " Tenant-based rental assistance that can be used in private market housing"),
+      tags$li(tags$strong("Public Housing:"), " Government-owned rental housing for low-income families"),
+      tags$li(tags$strong("Project-Based Section 8:"), " Property-based rental assistance attached to specific housing developments"),
+      tags$li(tags$strong("USDA Rural Development:"), " Rental assistance and property development in rural areas"),
+      tags$li(tags$strong("Other HUD Programs:"), " Including Section 202 elderly housing and Section 811 disability housing")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-assisted-rentals.connect.posit.cloud/",
+        `data-base-url` = "https://example-assisted-by-program.connect.posit.cloud/",
+        src = "https://example-assisted-by-program.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Assisted housing as share of total rental stock"),
+
+    p("This dashboard shows assisted rental housing as a percentage of the total rental housing stock. This metric helps understand how much of the rental market relies on public subsidies and the relative importance of assisted housing in different communities."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-assisted-share.connect.posit.cloud/",
+        src = "https://example-assisted-share.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Assisted housing by affordability level"),
+
+    p("This dashboard shows assisted rental housing by the income levels it serves, typically expressed as percentages of Area Median Income (AMI). Different programs target different income ranges, from extremely low-income households (30% AMI and below) to moderate-income households (80% AMI and below)."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-assisted-affordability.connect.posit.cloud/",
+        src = "https://example-assisted-affordability.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Virginia Housing")),
+      tags$ul(
+        tags$li(tags$a("Affordable housing programs and data",
+                      href = "https://www.virginiahousing.com/", target = "_blank"))
+      ),
+
+      p(tags$strong("National Housing Preservation Database")),
+      tags$ul(
+        tags$li(tags$a("Comprehensive assisted housing inventory",
+                      href = "https://www.preservationdatabase.org/", target = "_blank"))
+      ),
+
+      p(tags$strong("U.S. Department of Housing and Urban Development")),
+      tags$ul(
+        tags$li(tags$a("HUD program descriptions and data",
+                      href = "https://www.hud.gov/program_offices/public_indian_housing", target = "_blank"))
+      ),
+
+      p(tags$strong("National Low Income Housing Coalition")),
+      tags$ul(
+        tags$li(tags$a("Housing advocacy and policy research",
+                      href = "https://nlihc.org/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("HUD and Virginia Housing"),
-        p("Subsidized housing data from federal and state agencies.")
+        h4("National Housing Preservation Database (NHPD)"),
+        p("The NHPD is the most comprehensive source of information about federally assisted rental housing in the United States. It includes properties assisted through HUD, USDA Rural Development, and Low-Income Housing Tax Credit programs.")
+      ),
+
+      div(class = "data-sources",
+        h4("HUD Program Data"),
+        p("Property and tenant data from various HUD programs including Public Housing, Housing Choice Vouchers, Project-Based Section 8, and other rental assistance programs.")
+      ),
+
+      div(class = "data-sources",
+        h4("Virginia Housing"),
+        p("State housing finance agency data on Low-Income Housing Tax Credit properties and other state-supported affordable housing programs in Virginia.")
       )
     )
   ),
@@ -1075,22 +2127,100 @@ div(
     class = "content-page",
 
     h1("Housing Cost Burden"),
-    p("Cost burden by income, race and ethnicity."),
+
+    p("The dashboards on this page show housing cost burden across Virginia. Cost burden is generally defined as paying more than 30 percent of household income for housing (rent or mortgage, plus associated utilities). Severe cost burden occurs when households pay more than 50 percent of their income for housing."),
+
+    p("Cost burden is the most widely used measure of housing affordability. Households that are cost-burdened have less money available for other necessities like food, healthcare, transportation, and education. In Virginia, nearly half a million renter households (45 percent) are cost burdened."),
+
+    h2("Cost burden by income level"),
+
+    p("This dashboard shows cost burden rates by Area Median Income (AMI) categories. Most of the cost-burdened renter households in Virginia are those earning 50 percent AMI or below. Extremely low-income (ELI) households earning 30% AMI or less face particularly severe challenges, with 85 percent being cost-burdened and 65 percent being severely cost-burdened."),
+
+    p("Income categories include:"),
+
+    tags$ul(
+      tags$li(tags$strong("Extremely Low Income (ELI):"), " 30% AMI and below"),
+      tags$li(tags$strong("Very Low Income (VLI):"), " 31-50% AMI"),
+      tags$li(tags$strong("Low Income:"), " 51-80% AMI"),
+      tags$li(tags$strong("Moderate Income:"), " 81-100% AMI"),
+      tags$li(tags$strong("Above Moderate Income:"), " Over 100% AMI")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-cost-burden.connect.posit.cloud/",
+        `data-base-url` = "https://example-cost-burden-income.connect.posit.cloud/",
+        src = "https://example-cost-burden-income.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Cost burden by race and ethnicity"),
+
+    p("This dashboard shows cost burden rates by race and ethnicity. Due to historical and ongoing disparities in income and wealth, households of color often experience higher rates of cost burden than white households."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-cost-burden-race.connect.posit.cloud/",
+        src = "https://example-cost-burden-race.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Cost burden by tenure (owners vs. renters)"),
+
+    p("This dashboard compares cost burden rates between homeowners and renters. Renters typically experience higher cost burden rates than owners, particularly at lower income levels. This reflects both the lower incomes of renter households and the lack of rent-restricted affordable housing."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-cost-burden-tenure.connect.posit.cloud/",
+        src = "https://example-cost-burden-tenure.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("National Low Income Housing Coalition")),
+      tags$ul(
+        tags$li(tags$a("Out of Reach report on housing wage",
+                      href = "https://nlihc.org/oor", target = "_blank"))
+      ),
+
+      p(tags$strong("Joint Center for Housing Studies")),
+      tags$ul(
+        tags$li(tags$a("America's Rental Housing report",
+                      href = "https://www.jchs.harvard.edu/americas-rental-housing", target = "_blank"))
+      ),
+
+      p(tags$strong("Urban Institute")),
+      tags$ul(
+        tags$li(tags$a("Housing affordability and cost burden research",
+                      href = "https://www.urban.org/policy-centers/housing-finance-policy-center", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("American Community Survey"),
-        p("Housing cost burden data from the U.S. Census Bureau.")
+        h4("HUD Custom Tabulations of American Community Survey Data"),
+        p("This section uses custom tabulations of the American Community Survey 5-year estimates provided to HUD. These tabulations provide detailed cost burden information by income level, race/ethnicity, and other characteristics that are not available in standard ACS tables.")
+      ),
+
+      div(class = "data-sources",
+        h4("Data Coverage and Definitions"),
+        p("Cost burden data is available consistently from 2012 to 2022. Housing costs for renters include rent plus utilities. Housing costs for owners include mortgage payments, utilities, property taxes, insurance, and other ownership costs. Households paying more than 30% of income for housing are considered cost burdened; those paying more than 50% are severely cost burdened.")
       )
     )
   ),
@@ -1101,22 +2231,102 @@ div(
     class = "content-page",
 
     h1("Rental Housing Gap"),
-    p("Affordability of current supply by income."),
+
+    p("The dashboards on this page show the rental housing gap, which measures the mismatch between the supply of affordable rental housing and the demand from low-income households. In Virginia, there are over 300,000 cost-burdened renters who have very low incomes, resulting in a corresponding gap of over 300,000 deeply affordable rental units."),
+
+    p("The rental housing gap analysis compares the number of renter households at different income levels to the supply of rental units that are affordable and available to them. A gap occurs when there are more households than affordable units at a given income level."),
+
+    h2("Affordable and available units by income level"),
+
+    p("This dashboard shows the supply of rental housing that is both affordable and available to households at different income levels. A unit is considered 'affordable' if it costs no more than 30% of a household's income. A unit is 'available' if it is either vacant or occupied by a household in the target income range."),
+
+    p("Income levels are expressed as percentages of Area Median Income (AMI):"),
+
+    tags$ul(
+      tags$li(tags$strong("Extremely Low Income:"), " 30% AMI and below (approximately $24,000 for a family of four in Virginia)"),
+      tags$li(tags$strong("Very Low Income:"), " 31-50% AMI (approximately $24,001-$40,000 for a family of four)"),
+      tags$li(tags$strong("Low Income:"), " 51-80% AMI (approximately $40,001-$64,000 for a family of four)")
+    ),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-affordable-available.connect.posit.cloud/",
+        src = "https://example-affordable-available.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Housing gap by income level"),
+
+    p("This dashboard shows the shortage or surplus of affordable rental housing at each income level. Negative numbers indicate a shortage (more households than affordable units), while positive numbers indicate a surplus (more affordable units than households)."),
+
+    p("The analysis reveals that Virginia has significant shortages of housing affordable to extremely low-income and very low-income renters, while having adequate or surplus supply for moderate and higher-income renters."),
+
+    p("Data is available at the state, CBSA, and locality level."),
 
     div(
       class = "app-container",
       tags$iframe(
         `data-base-url` = "https://example-housing-gap.connect.posit.cloud/",
+        src = "https://example-housing-gap.connect.posit.cloud/?geo=state",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Gap trends over time"),
+
+    p("This dashboard shows how the rental housing gap has changed over time, helping identify whether affordability challenges are improving or worsening. Increasing gaps indicate growing affordability challenges, while decreasing gaps suggest improving conditions."),
+
+    p("Data is available at the state, CBSA, and locality level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-gap-trends.connect.posit.cloud/",
+        src = "https://example-gap-trends.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("National Low Income Housing Coalition")),
+      tags$ul(
+        tags$li(tags$a("The Gap: A Shortage of Affordable Homes",
+                      href = "https://nlihc.org/gap", target = "_blank")),
+        tags$li(tags$a("Virginia Housing Profile",
+                      href = "https://nlihc.org/housing-needs-by-state/virginia", target = "_blank"))
+      ),
+
+      p(tags$strong("Urban Institute")),
+      tags$ul(
+        tags$li(tags$a("Rental Housing Crisis analysis",
+                      href = "https://www.urban.org/policy-centers/housing-finance-policy-center", target = "_blank"))
+      ),
+
+      p(tags$strong("Enterprise Community Partners")),
+      tags$ul(
+        tags$li(tags$a("Housing policy and preservation resources",
+                      href = "https://www.enterprisecommunity.org/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("National Low Income Housing Coalition"),
-        p("Housing affordability gap analysis.")
+        h4("National Low Income Housing Coalition Gap Analysis"),
+        p("NLIHC's Gap analysis uses American Community Survey data to compare the number of extremely low-income (ELI), very low-income (VLI), and low-income renter households to the supply of rental housing affordable and available to them. The analysis is updated annually and available at state, metropolitan, and county levels.")
+      ),
+
+      div(class = "data-sources",
+        h4("Methodology Notes"),
+        p("The analysis assumes that higher-income households occupy lower-cost units when available, which reduces availability for lower-income households. Units are considered affordable if they cost no more than 30% of the household's income. The analysis does not account for housing quality, location, or other factors that might affect housing choice.")
       )
     )
   ),
@@ -1127,22 +2337,119 @@ div(
     class = "content-page",
 
     h1("HUD AMI Limits"),
-    p("Income limits used by affordable housing programs."),
+
+    p("The dashboards on this page show Area Median Income (AMI) limits published annually by the U.S. Department of Housing and Urban Development. These income limits are used by most federal, state, and local affordable housing programs to determine household eligibility and set rent and purchase price limits."),
+
+    p("AMI is calculated for each metropolitan area and non-metropolitan county based on median family income data from the American Community Survey. HUD adjusts these figures for high housing cost areas and publishes income limits at various percentages of AMI for different household sizes."),
+
+    h2("Current AMI limits by household size"),
+
+    p("This dashboard shows current AMI limits for different household sizes in Virginia. Income limits are provided for household sizes from 1 to 8 persons, with standard categories including:"),
+
+    tags$ul(
+      tags$li(tags$strong("Extremely Low Income:"), " 30% AMI"),
+      tags$li(tags$strong("Very Low Income:"), " 50% AMI"),
+      tags$li(tags$strong("Low Income:"), " 80% AMI"),
+      tags$li(tags$strong("Moderate Income:"), " 100% AMI (Area Median Income)"),
+      tags$li(tags$strong("Above Moderate Income:"), " 120% AMI")
+    ),
+
+    p("Data is available at the CBSA and non-metropolitan county level."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-ami-limits.connect.posit.cloud/",
+        `data-base-url` = "https://example-ami-current.connect.posit.cloud/",
+        src = "https://example-ami-current.connect.posit.cloud/?geo=cbsa",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("AMI trends over time"),
+
+    p("This dashboard shows how AMI limits have changed over time, helping track income trends and understand the changing thresholds for affordable housing program eligibility. AMI limits typically increase annually but may fluctuate based on economic conditions."),
+
+    p("Data is available at the CBSA and non-metropolitan county level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-ami-trends.connect.posit.cloud/",
+        src = "https://example-ami-trends.connect.posit.cloud/?geo=cbsa",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Rent and purchase price limits"),
+
+    p("This dashboard shows maximum rent and home purchase prices corresponding to different AMI levels. These limits are calculated assuming households pay no more than 30% of income for housing costs and are used to set affordability requirements in housing programs."),
+
+    p("For rental housing:"),
+    tags$ul(
+      tags$li("Rent limits include utilities"),
+      tags$li("Based on 30% of gross household income"),
+      tags$li("Used for Low-Income Housing Tax Credit, Housing Choice Voucher, and other rental programs")
+    ),
+
+    p("For homeownership:"),
+    tags$ul(
+      tags$li("Purchase price limits based on mortgage capacity"),
+      tags$li("Include principal, interest, taxes, insurance, and utilities (PITIU)"),
+      tags$li("Used for first-time homebuyer and affordable homeownership programs")
+    ),
+
+    p("Data is available at the CBSA and non-metropolitan county level."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-price-limits.connect.posit.cloud/",
+        src = "https://example-price-limits.connect.posit.cloud/?geo=cbsa",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("U.S. Department of Housing and Urban Development")),
+      tags$ul(
+        tags$li(tags$a("Income Limits Documentation",
+                      href = "https://www.huduser.gov/portal/datasets/il.html", target = "_blank")),
+        tags$li(tags$a("FMR and Income Limit Briefing Materials",
+                      href = "https://www.huduser.gov/portal/datasets/il/il_briefing.html", target = "_blank"))
+      ),
+
+      p(tags$strong("Virginia Housing")),
+      tags$ul(
+        tags$li(tags$a("Income and rent limits for Virginia programs",
+                      href = "https://www.virginiahousing.com/", target = "_blank"))
+      ),
+
+      p(tags$strong("HUD User")),
+      tags$ul(
+        tags$li(tags$a("Income limits methodology and documentation",
+                      href = "https://www.huduser.gov/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("U.S. Department of Housing and Urban Development"),
-        p("Area Median Income limits for affordable housing programs.")
+        h4("HUD Area Median Income (AMI) and Income Limits"),
+        p("HUD publishes income limits annually for all metropolitan areas and non-metropolitan counties. These limits are based on median family income data from the American Community Survey, with adjustments for high housing cost areas and other factors as specified in federal regulations.")
+      ),
+
+      div(class = "data-sources",
+        h4("Calculation Methodology"),
+        p("Income limits are calculated as percentages of Area Median Income, adjusted for family size. HUD may limit year-over-year changes and apply minimum income limits in some areas. The limits are updated annually and typically released each spring for the program year beginning October 1.")
+      ),
+
+      div(class = "data-sources",
+        h4("Geographic Coverage"),
+        p("Income limits are published for all HUD Metro Fair Market Rent Areas (HMFAs) and non-metropolitan counties. In Virginia, this includes all metropolitan statistical areas and individual rural counties not part of metropolitan areas.")
       )
     )
   ),
@@ -1155,53 +2462,159 @@ div(
     class = "content-page",
 
     h1("Homelessness"),
-    p("Point-in-Time homelessness for Continuum of Care regions."),
+
+    p("The dashboards on this page show homelessness data for Virginia's Continuum of Care (CoC) regions. This data comes from annual Point-in-Time (PIT) counts that HUD requires all CoCs to conduct to count people experiencing homelessness in their communities."),
+
+    p("Virginia has 16 Continuums of Care, including a Virginia Balance of State CoC that covers rural areas not served by other CoCs. CoC regions include major metropolitan areas like Greater Richmond, Southeastern Virginia (Norfolk/Virginia Beach area), and Arlington County, as well as smaller communities throughout the state."),
+
+    h2("Point-in-Time homelessness counts"),
+
+    p("This dashboard shows the annual Point-in-Time counts of people experiencing homelessness. PIT counts include people living in emergency shelters, transitional housing programs, and Safe Havens. Counts of unsheltered individuals (those living in places not meant for human habitation) occur every other year in odd-numbered years."),
+
+    p("HUD defines homelessness to include four categories:"),
+
+    tags$ul(
+      tags$li("People living in places not meant for human habitation, emergency shelters, or Safe Havens"),
+      tags$li("People who will lose their primary residence within 14 days and lack resources to remain housed"),
+      tags$li("Families with children or unaccompanied youth who are unstably housed and likely to continue in that state"),
+      tags$li("People fleeing or attempting to flee domestic violence who lack alternative housing and resources")
+    ),
+
+    p("Data is available by Continuum of Care region."),
 
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-homelessness.connect.posit.cloud/",
+        `data-base-url` = "https://example-pit-counts.connect.posit.cloud/",
+        src = "https://example-pit-counts.connect.posit.cloud/?geo=coc",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Sheltered vs. unsheltered homelessness"),
+
+    p("This dashboard shows the breakdown between sheltered and unsheltered homelessness. Sheltered homelessness includes people staying in emergency shelters, transitional housing, and Safe Havens. Unsheltered homelessness includes people living in places not meant for human habitation such as cars, abandoned buildings, or outdoors."),
+
+    p("The balance between sheltered and unsheltered homelessness varies significantly by region and can reflect differences in shelter capacity, climate, local policies, and service availability."),
+
+    p("Data is available by Continuum of Care region."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-sheltered-unsheltered.connect.posit.cloud/",
+        src = "https://example-sheltered-unsheltered.connect.posit.cloud/?geo=coc",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Homelessness by population type"),
+
+    p("This dashboard shows homelessness by population subgroups, including families with children, unaccompanied youth, veterans, and chronically homeless individuals. Different populations may have different service needs and pathways out of homelessness."),
+
+    p("Key population categories include:"),
+
+    tags$ul(
+      tags$li(tags$strong("Families with children:"), " Households with at least one adult and one child under age 18"),
+      tags$li(tags$strong("Unaccompanied youth:"), " Persons under age 25 who are not part of a family with children"),
+      tags$li(tags$strong("Veterans:"), " Persons who served in the U.S. military"),
+      tags$li(tags$strong("Chronically homeless:"), " Individuals with disabilities who have been continuously homeless for a year or more, or have experienced at least four episodes of homelessness in the past three years")
+    ),
+
+    p("Data is available by Continuum of Care region."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-homeless-populations.connect.posit.cloud/",
+        src = "https://example-homeless-populations.connect.posit.cloud/?geo=coc",
+        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+      )
+    ),
+
+    h2("Homelessness trends over time"),
+
+    p("This dashboard shows how homelessness has changed over time in Virginia's CoC regions. Trend data helps identify whether homelessness is increasing, decreasing, or remaining stable, and can inform resource allocation and policy decisions."),
+
+    p("Data is available by Continuum of Care region from 2007 to present."),
+
+    div(
+      class = "app-container",
+      tags$iframe(
+        `data-base-url` = "https://example-homeless-trends.connect.posit.cloud/",
+        src = "https://example-homeless-trends.connect.posit.cloud/?geo=coc",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
     div(class = "resources-section",
-      h3("Data Sources"),
+      h3("Additional resources"),
+
+      p(tags$strong("Virginia Department of Housing and Community Development")),
+      tags$ul(
+        tags$li(tags$a("Homelessness programs and resources",
+                      href = "https://www.dhcd.virginia.gov/homeless", target = "_blank"))
+      ),
+
+      p(tags$strong("National Alliance to End Homelessness")),
+      tags$ul(
+        tags$li(tags$a("State of Homelessness reports and data",
+                      href = "https://endhomelessness.org/resource/", target = "_blank"))
+      ),
+
+      p(tags$strong("HUD Exchange")),
+      tags$ul(
+        tags$li(tags$a("CoC Program resources and guidance",
+                      href = "https://www.hudexchange.info/programs/coc/", target = "_blank")),
+        tags$li(tags$a("Point-in-Time count guidance and resources",
+                      href = "https://www.hudexchange.info/programs/hdx/guides/pit-hic/", target = "_blank"))
+      ),
+
+      p(tags$strong("Coalition for the Homeless")),
+      tags$ul(
+        tags$li(tags$a("Virginia homelessness advocacy and resources",
+                      href = "https://vachomelesscoalition.org/", target = "_blank"))
+      ),
+
+      h3("Data sources"),
+
       div(class = "data-sources",
-        h4("U.S. Department of Housing and Urban Development"),
-        p("Point-in-Time count data from Continuum of Care regions.")
+        h4("HUD CoC Homeless Populations and Subpopulations Reports"),
+        p("Annual reports compiled from Point-in-Time count data submitted by all Continuums of Care. Data includes total homelessness counts, sheltered vs. unsheltered breakdowns, and counts by population subgroups such as families, youth, veterans, and chronically homeless individuals.")
+      ),
+
+      div(class = "data-sources",
+        h4("HUD Homelessness Data Exchange (HDX)"),
+        p("The HDX provides Point-in-Time and Housing Inventory Count data from 2007 to present. Data is available in both PDF reports and Excel formats for download and analysis. The data is intended for informational, educational, and research uses with restrictions on commercial use and redistribution.")
+      ),
+
+      div(class = "data-sources",
+        h4("Data Collection Methodology"),
+        p("Point-in-Time counts are conducted annually during the last ten days of January. Sheltered counts include people in emergency shelters, transitional housing, and Safe Havens on the night of the count. Unsheltered counts, conducted in odd-numbered years, attempt to count people living in places not meant for human habitation. Count methodologies vary by community but follow HUD guidance for consistency.")
       )
     )
   ),
 
   # ECONOMIC IMPACT CALCULATORS
 
-  # Calculators - New Construction
+  # Calculators - New Construction (with fullscreen map demo)
   div(
     id = "calculators-new-construction",
-    class = "content-page",
+    class = "content-page fullscreen-map",
+    style = "position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100vh; padding: 0; margin: 0;",
 
-    h1("New Construction Calculator"),
-    p("Estimate job and economic growth from new construction."),
-    p("The Virginia Center for Housing Research developed these calculators to estimate the economic impact of housing activity on local economies."),
-
-    div(
-      class = "app-container",
-      div(class = "loading-overlay loading", "Loading calculator..."),
-      tags$iframe(
-        `data-base-url` = "https://example-new-construction-calc.connect.posit.cloud/",
-        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
-        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
-      )
-    ),
-
-    div(class = "resources-section",
-      h3("Data Sources"),
-      div(class = "data-sources",
-        h4("Virginia Center for Housing Research"),
-        p("Economic impact methodology based on regional economic modeling.")
-      )
+    tags$iframe(
+      `data-base-url` = "https://walkerke-projections.share.connect.posit.cloud/",
+      src = "https://walkerke-projections.share.connect.posit.cloud/",
+      width = "100%",
+      height = "100%",
+      frameborder = "0",
+      scrolling = "no",
+      style = "border: none; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"
     )
   ),
 
