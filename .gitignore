@@ -1,7 +1,6 @@
 /.quarto/
 /_site/
 .DS_Store
-*.html
 *_files/
 /.vscode/
 .Rproj.user/
