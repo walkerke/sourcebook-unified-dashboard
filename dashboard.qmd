@@ -469,8 +469,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://housingforwardvirginia-01-total-pop-chg.share.connect.posit.cloud/",
-        src = "https://housingforwardvirginia-01-total-pop-chg.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-01-dem-total-pop-chg.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-01-dem-total-pop-chg.share.connect.posit.cloud/?geo=state",
         width = "100%",
         scrolling = "no",
         height = "70vh",
@@ -634,19 +634,20 @@ div(
 
     p("Data is available at the state, CBSA, and locality level."),
 
-    div(
-      class = "app-container",
-      tags$iframe(
-        `data-base-url` = "https://example-race-ethnicity-change.connect.posit.cloud/",
-        src = "https://example-race-ethnicity-change.connect.posit.cloud/?geo=state",
-        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
-        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
-      )
-    ),
+    # I'm not seeing this app in the repo
+    # div(
+    #   class = "app-container",
+    #   tags$iframe(
+    #     `data-base-url` = "https://example-race-ethnicity-change.connect.posit.cloud/",
+    #     src = "https://example-race-ethnicity-change.connect.posit.cloud/?geo=state",
+    #     width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+    #     style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+    #   )
+    # ),
 
-    p(tags$em("The greater-than-expected rise in the non-white population—and commensurate shrinking of the white population—surprised researchers when the 2020 Census results were released.")),
+    # p(tags$em("The greater-than-expected rise in the non-white population—and commensurate shrinking of the white population—surprised researchers when the 2020 Census results were released.")),
 
-    p(tags$em("This phenomenon is very likely in part because of the changing ways Americans are choosing to identify their race and ethnicity.")),
+    # p(tags$em("This phenomenon is very likely in part because of the changing ways Americans are choosing to identify their race and ethnicity.")),
 
     div(class = "resources-section",
       h3("Additional resources"),
@@ -701,22 +702,22 @@ div(
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
+    # I don't see this app in the repo
+    # h2("Change in population by age group"),
 
-    h2("Change in population by age group"),
+    # p("This dashboard shows changes in population by age group. Data for 2010 is from that year's Decennial Census counts; all other years use estimates from the Census Bureau's Population Estimates Program."),
 
-    p("This dashboard shows changes in population by age group. Data for 2010 is from that year's Decennial Census counts; all other years use estimates from the Census Bureau's Population Estimates Program."),
+    # p("Data is available at the state, CBSA, and locality level."),
 
-    p("Data is available at the state, CBSA, and locality level."),
-
-    div(
-      class = "app-container",
-      tags$iframe(
-        `data-base-url` = "https://example-age-change.connect.posit.cloud/",
-        src = "https://example-age-change.connect.posit.cloud/?geo=state",
-        width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
-        style = "border: 1px solid #e0e0e0; border-radius: 8px;"
-      )
-    ),
+    # div(
+    #   class = "app-container",
+    #   tags$iframe(
+    #     `data-base-url` = "https://example-age-change.connect.posit.cloud/",
+    #     src = "https://example-age-change.connect.posit.cloud/?geo=state",
+    #     width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
+    #     style = "border: 1px solid #e0e0e0; border-radius: 8px;"
+    #   )
+    # ),
 
     div(class = "resources-section",
       h3("Additional resources"),
@@ -788,8 +789,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://0199e5e4-0907-78e9-5e61-1f740a32e51a.share.connect.posit.cloud/",
-        src = "https://0199e5e4-0907-78e9-5e61-1f740a32e51a.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-01-dem-hh-type.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-01-dem-hh-type.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -804,8 +805,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://housingforwardvirginia-living-arr.share.connect.posit.cloud/",
-        src = "https://housingforwardvirginia-living-arr.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-01-dem-living-arr.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-01-dem-living-arr.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -855,8 +856,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://01995882-b14f-6863-40d9-8d604c2eba4e.share.connect.posit.cloud/",
-        src = "https://01995882-b14f-6863-40d9-8d604c2eba4e.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-01-dem-hh-size.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-01-dem-hh-size.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -871,8 +872,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://01995881-0275-fa1e-95de-271d11ce0d79.share.connect.posit.cloud/",
-        src = "https://01995881-0275-fa1e-95de-271d11ce0d79.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-01-dem-hh-size-avg.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-01-dem-hh-size-avg.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -928,8 +929,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://019958bd-3736-c7fc-e161-14a3629c9446.share.connect.posit.cloud/",
-        src = "https://019958bd-3736-c7fc-e161-14a3629c9446.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://0199e60c-75e8-35ca-f517-0319b0e1acca.share.connect.posit.cloud/",
+        src = "https://0199e60c-75e8-35ca-f517-0319b0e1acca.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -944,8 +945,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://019958d0-bdde-42e2-b36b-e41dafdfca68.share.connect.posit.cloud/",
-        src = "https://019958d0-bdde-42e2-b36b-e41dafdfca68.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-02-econ-med-inc-tenure.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-02-econ-med-inc-tenure.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -960,8 +961,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://019958c7-905d-452b-c918-e3153cb23e31.share.connect.posit.cloud/",
-        src = "https://019958c7-905d-452b-c918-e3153cb23e31.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-02-econ-med-inc-age.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-02-econ-med-inc-age.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -976,8 +977,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://019958cd-7b2d-5e38-1952-328a68147751.share.connect.posit.cloud/",
-        src = "https://019958cd-7b2d-5e38-1952-328a68147751.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-02-econ-med-inc-race.share.connect.posit.cloud",
+        src = "https://housingforwardvirginia-02-econ-med-inc-race.share.connect.posit.cloud?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1035,8 +1036,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://019958d3-0a04-4efe-29e3-e35f34a53ed1.share.connect.posit.cloud/",
-        src = "https://019958d3-0a04-4efe-29e3-e35f34a53ed1.share.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-02-econ-poverty.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-02-econ-poverty.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1198,8 +1199,7 @@ div(
 
     tags$ul(
       tags$li("1-unit buildings (single-family homes)"),
-      tags$li("2-unit buildings (duplexes)"),
-      tags$li("3-4 unit buildings (triplexes and quadraplexes)"),
+      tags$li("2-4 unit buildings (duplexes, triplexes, and quadraplexes)"),
       tags$li("5+ unit buildings (larger apartment buildings)")
     ),
 
@@ -1208,8 +1208,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-housing-production.connect.posit.cloud/",
-        src = "https://example-housing-production.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-03-supply-bps.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-03-supply-bps.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1317,8 +1317,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-housing-characteristics.connect.posit.cloud/",
-        src = "https://example-housing-characteristics.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-03-supply-bedrooms.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-03-supply-bedrooms.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1377,8 +1377,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-overcrowding.connect.posit.cloud/",
-        src = "https://example-overcrowding.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-01-dem-crowd.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-01-dem-crowd.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1469,8 +1469,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-homeownership-trends.connect.posit.cloud/",
-        src = "https://example-homeownership-trends.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-04-homeownership-ho-rate.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-04-homeownership-ho-rate.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1508,7 +1508,7 @@ div(
           tags$li(tags$strong("Table B25007:"), " Tenure by Age of Householder"),
           tags$li(tags$strong("Table B25003A-I:"), " Tenure by Race and Ethnicity")
         ),
-        p("The most recent data used for this section are the 2018-2022 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
+        p("The most recent data used for this section are the 2019-2023 5-year estimates. These estimates average all survey responses across this period to increase sample sizes and reduce margins of error.")
       )
     )
   ),
@@ -1531,8 +1531,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-median-sales-price.connect.posit.cloud/",
-        src = "https://example-median-sales-price.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-04-homeownership-var-price.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-04-homeownership-var-price.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1547,8 +1547,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-sales-volume.connect.posit.cloud/",
-        src = "https://example-sales-volume.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-04-homeownership-var-sold.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-04-homeownership-var-sold.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1563,8 +1563,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-market-conditions.connect.posit.cloud/",
-        src = "https://example-market-conditions.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-04-homeownership-var-dom.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-04-homeownership-var-dom.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1625,8 +1625,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-hpi-annual.connect.posit.cloud/",
-        src = "https://example-hpi-annual.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-04-homeownership-hpi.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-04-homeownership-hpi.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1715,8 +1715,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-mortgage-originations.connect.posit.cloud/",
-        src = "https://example-mortgage-originations.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-04-homeownership-mortgages.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-04-homeownership-mortgages.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1731,8 +1731,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-mortgage-denials.connect.posit.cloud/",
-        src = "https://example-mortgage-denials.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-04-homeownership-denial.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-04-homeownership-denial.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1811,8 +1811,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-median-rent.connect.posit.cloud/",
-        src = "https://example-median-rent.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-05-rental-med-rent.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-05-rental-med-rent.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -1838,14 +1838,14 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-rent-distribution.connect.posit.cloud/",
-        src = "https://example-rent-distribution.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-05-rental-gross-rent.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-05-rental-gross-rent.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
     ),
 
-    h2("Rent changes over time"),
+    h2("Rent changes over time (duplicate?"),
 
     p("This dashboard shows how median gross rent has changed over time, helping identify rent growth trends and periods of rapid rent increases. Significant rent growth can indicate supply constraints or increasing demand in local markets."),
 
@@ -1917,8 +1917,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-rental-vacancy-rate.connect.posit.cloud/",
-        src = "https://example-rental-vacancy-rate.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-05-rental-vacancy.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-05-rental-vacancy.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -2034,8 +2034,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-assisted-by-program.connect.posit.cloud/",
-        src = "https://example-assisted-by-program.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-05-rental-nhpd.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-05-rental-nhpd.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -2151,8 +2151,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-cost-burden-income.connect.posit.cloud/",
-        src = "https://example-cost-burden-income.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-06-affordability-cb-ami.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-06-affordability-cb-ami.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -2167,8 +2167,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-cost-burden-race.connect.posit.cloud/",
-        src = "https://example-cost-burden-race.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-06-affordability-cb-race.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-06-affordability-cb-race.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -2271,8 +2271,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-housing-gap.connect.posit.cloud/",
-        src = "https://example-housing-gap.connect.posit.cloud/?geo=state",
+        `data-base-url` = "https://housingforwardvirginia-06-affordability-cb-gap.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-06-affordability-cb-gap.share.connect.posit.cloud/?geo=state",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -2359,8 +2359,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-ami-current.connect.posit.cloud/",
-        src = "https://example-ami-current.connect.posit.cloud/?geo=cbsa",
+        `data-base-url` = "https://019a11fa-52f9-2089-6acf-53aacfe4308f.share.connect.posit.cloud/",
+        src = "https://019a11fa-52f9-2089-6acf-53aacfe4308f.share.connect.posit.cloud/?geo=cbsa",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -2485,8 +2485,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-pit-counts.connect.posit.cloud/",
-        src = "https://example-pit-counts.connect.posit.cloud/?geo=coc",
+        `data-base-url` = "https://housingforwardvirginia-07-instability-pit.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-07-instability-pit.share.connect.posit.cloud",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
@@ -2544,8 +2544,8 @@ div(
     div(
       class = "app-container",
       tags$iframe(
-        `data-base-url` = "https://example-homeless-trends.connect.posit.cloud/",
-        src = "https://example-homeless-trends.connect.posit.cloud/?geo=coc",
+        `data-base-url` = "https://housingforwardvirginia-07-instability-hic.share.connect.posit.cloud/",
+        src = "https://housingforwardvirginia-07-instability-hic.share.connect.posit.cloud/",
         width = "100%", height = "70vh", frameborder = "0", scrolling = "no",
         style = "border: 1px solid #e0e0e0; border-radius: 8px;"
       )
