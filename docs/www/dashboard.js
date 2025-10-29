@@ -170,27 +170,33 @@ class SourcebookDashboard {
       page.classList.remove('active');
       page.style.display = 'none';
     });
-    
+
     // Show target page
     const targetPage = document.getElementById(subpageId);
     if (targetPage) {
       targetPage.classList.add('active');
       targetPage.style.display = 'block';
-      
+
       // Update navigation state
       this.updateNavigationState(subpageId);
-      
+
       // Update iframe with geographic parameters
       this.updateCurrentIframe();
-      
+
       // Update URL
       this.currentSubpage = subpageId;
       if (updateHistory) {
         this.updateUrl();
       }
-      
+
       // Update page title
       this.updatePageTitle(subpageId);
+
+      // Close sidebar on mobile after navigation
+      this.closeSidebarOnMobile();
+
+      // Scroll to top on page change
+      window.scrollTo(0, 0);
     }
   }
   
@@ -500,6 +506,38 @@ class SourcebookDashboard {
     document.title = `${pageTitle} - Sourcebook`;
   }
   
+  toggleSidebar() {
+    // Try both sidebar selectors (Quarto uses aside.sidebar or #bslib-sidebar-1)
+    const sidebar = document.querySelector('aside.sidebar') || document.querySelector('.sidebar') || document.getElementById('bslib-sidebar-1');
+    const backdrop = document.getElementById('sidebar-backdrop');
+
+    if (sidebar && backdrop) {
+      sidebar.classList.toggle('show');
+      backdrop.classList.toggle('show');
+
+      // Prevent body scroll when sidebar is open on mobile
+      if (sidebar.classList.contains('show')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  // Close sidebar when navigating to a new page on mobile
+  closeSidebarOnMobile() {
+    if (window.innerWidth <= 768) {
+      const sidebar = document.querySelector('aside.sidebar') || document.querySelector('.sidebar') || document.getElementById('bslib-sidebar-1');
+      const backdrop = document.getElementById('sidebar-backdrop');
+
+      if (sidebar && backdrop) {
+        sidebar.classList.remove('show');
+        backdrop.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
   getSubpageTitle(subpageId) {
     const titleMap = {
       'intro-page': 'Welcome - Sourcebook',
@@ -545,11 +583,21 @@ class SourcebookDashboard {
   
 }
 
-// Mobile sidebar toggle
+// Mobile sidebar toggle with backdrop
 function toggleSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  if (sidebar) {
+  const sidebar = document.querySelector('aside.sidebar') || document.querySelector('.sidebar') || document.getElementById('bslib-sidebar-1');
+  const backdrop = document.getElementById('sidebar-backdrop');
+
+  if (sidebar && backdrop) {
     sidebar.classList.toggle('show');
+    backdrop.classList.toggle('show');
+
+    // Prevent body scroll when sidebar is open on mobile
+    if (sidebar.classList.contains('show')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
 }
 
@@ -562,14 +610,31 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('SourcebookDashboard initialized'); // Debug
     }
   }, 500);
-  
-  // Add mobile menu button if needed
-  if (window.innerWidth <= 768) {
-    const menuButton = document.createElement('button');
-    menuButton.className = 'btn btn-primary d-md-none position-fixed';
-    menuButton.style.cssText = 'top: 1rem; left: 1rem; z-index: 1060;';
-    menuButton.innerHTML = '☰ Menu';
-    menuButton.onclick = toggleSidebar;
-    document.body.appendChild(menuButton);
+});
+
+// Handle window resize events
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    // Close sidebar when resizing from mobile to desktop
+    if (window.innerWidth > 768) {
+      const sidebar = document.querySelector('aside.sidebar') || document.querySelector('.sidebar') || document.getElementById('bslib-sidebar-1');
+      const backdrop = document.getElementById('sidebar-backdrop');
+
+      if (sidebar && backdrop) {
+        sidebar.classList.remove('show');
+        backdrop.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+    }
+  }, 250);
+});
+
+// Handle orientation change on mobile devices
+window.addEventListener('orientationchange', () => {
+  // Close sidebar on orientation change for better UX
+  if (window.sourcebookDashboard) {
+    window.sourcebookDashboard.closeSidebarOnMobile();
   }
 });

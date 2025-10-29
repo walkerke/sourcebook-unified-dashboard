@@ -373,12 +373,29 @@ tagList(
 ```{r}
 #| echo: false
 
-# Include the dashboard JavaScript
-tags$script(src = "www/dashboard.js")
+# Include the dashboard JavaScript and mobile UI elements
+tagList(
+  tags$script(src = "www/dashboard.js"),
 
-# Content area wrapper
-div(
-  class = "content-area",
+  # Mobile menu button (shows only on mobile)
+  tags$button(
+    class = "mobile-menu-button",
+    id = "mobile-menu-btn",
+    onclick = "window.sourcebookDashboard && window.sourcebookDashboard.toggleSidebar()",
+    bsicons::bs_icon("list", size = "1.5em"),
+    span(style = "margin-left: 0.5rem;", "Menu")
+  ),
+
+  # Backdrop for mobile sidebar
+  div(
+    class = "sidebar-backdrop",
+    id = "sidebar-backdrop",
+    onclick = "window.sourcebookDashboard && window.sourcebookDashboard.toggleSidebar()"
+  ),
+
+  # Content area wrapper
+  div(
+    class = "content-area",
 
   # Intro/Welcome Page (default)
   div(
@@ -2645,5 +2662,6 @@ div(
       )
     )
   )
-)
+  ) # Close content-area div
+) # Close tagList
 ```
