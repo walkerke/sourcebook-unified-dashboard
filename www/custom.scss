@@ -1079,7 +1079,22 @@ select:focus {
 
 // Fullscreen map support
 .content-page.fullscreen-map {
-  // When active, take full available space
+  // Base styles for fullscreen maps (applied regardless of active state)
+  // These ensure consistent rendering even before JS runs
+  max-width: none !important;
+  width: calc(100vw - 340px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  // iframe always fills container
+  iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    display: block !important;
+  }
+
+  // When active, use fixed positioning for true fullscreen
   &.active {
     position: fixed !important;
     top: 0 !important;
@@ -1094,6 +1109,7 @@ select:focus {
     z-index: 100;
     display: block !important;
     background: white;
+    overflow: hidden !important;
 
     iframe {
       position: absolute !important;

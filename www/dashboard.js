@@ -153,11 +153,12 @@ class SourcebookDashboard {
   }
   
   setupNavigation() {
-    // Navigation links
+    // Navigation links - use closest() to handle clicks on child elements
     document.addEventListener('click', (e) => {
-      if (e.target.matches('[data-subpage]')) {
+      const subpageLink = e.target.closest('[data-subpage]');
+      if (subpageLink) {
         e.preventDefault();
-        const subpage = e.target.getAttribute('data-subpage');
+        const subpage = subpageLink.getAttribute('data-subpage');
         this.showSubpage(subpage, true);
       }
     });
@@ -573,6 +574,8 @@ class SourcebookDashboard {
       'affordability-ami': 'HUD AMI Limits',
       // Instability
       'instability-homelessness': 'Homelessness',
+      'instability-pit-counts': 'PIT Counts',
+      'instability-housing-inventory': 'Housing Inventory',
       // Economic Impact Calculators
       'calculators-new-construction': 'New Construction Calculator',
       'calculators-renovation': 'Renovation Calculator'

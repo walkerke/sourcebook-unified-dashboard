@@ -573,6 +573,8 @@ class SourcebookDashboard {
       'affordability-ami': 'HUD AMI Limits',
       // Instability
       'instability-homelessness': 'Homelessness',
+      'instability-pit-counts': 'PIT Counts',
+      'instability-housing-inventory': 'Housing Inventory',
       // Economic Impact Calculators
       'calculators-new-construction': 'New Construction Calculator',
       'calculators-renovation': 'Renovation Calculator'
