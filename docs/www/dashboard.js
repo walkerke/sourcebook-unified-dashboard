@@ -1,4 +1,7 @@
 // Sourcebook Dashboard Navigation and URL Management
+// Prevent redeclaration if script is loaded multiple times
+if (typeof SourcebookDashboard === 'undefined') {
+
 class SourcebookDashboard {
   constructor() {
     this.currentSection = null;
@@ -153,17 +156,22 @@ class SourcebookDashboard {
   }
   
   setupNavigation() {
-    // Navigation links
+    // Navigation links - use closest() to handle clicks on child elements
     document.addEventListener('click', (e) => {
-      if (e.target.matches('[data-subpage]')) {
+      const subpageLink = e.target.closest('[data-subpage]');
+      if (subpageLink) {
         e.preventDefault();
-        const subpage = e.target.getAttribute('data-subpage');
+        e.stopPropagation();
+        const subpage = subpageLink.getAttribute('data-subpage');
+        console.log('Navigation click detected, subpage:', subpage);
         this.showSubpage(subpage, true);
       }
     });
   }
-  
+
   showSubpage(subpageId, updateHistory = true) {
+    console.log('showSubpage called with:', subpageId, 'updateHistory:', updateHistory);
+
     // Hide all content pages
     const pages = document.querySelectorAll('.content-page');
     pages.forEach(page => {
@@ -173,9 +181,12 @@ class SourcebookDashboard {
 
     // Show target page
     const targetPage = document.getElementById(subpageId);
+    console.log('Target page found:', !!targetPage);
+
     if (targetPage) {
       targetPage.classList.add('active');
       targetPage.style.display = 'block';
+      console.log('Page activated:', subpageId, 'Classes:', targetPage.className);
 
       // Update navigation state
       this.updateNavigationState(subpageId);
@@ -185,7 +196,10 @@ class SourcebookDashboard {
 
       // Update URL
       this.currentSubpage = subpageId;
+      console.log('currentSubpage set to:', this.currentSubpage);
+
       if (updateHistory) {
+        console.log('Calling updateUrl()');
         this.updateUrl();
       }
 
@@ -197,6 +211,8 @@ class SourcebookDashboard {
 
       // Scroll to top on page change
       window.scrollTo(0, 0);
+    } else {
+      console.error('Target page not found:', subpageId);
     }
   }
   
@@ -204,17 +220,21 @@ class SourcebookDashboard {
     // Remove active states
     const navLinks = document.querySelectorAll('.accordion-body a');
     navLinks.forEach(link => link.classList.remove('active'));
-    
+
     // Only add active state if not on intro page
     if (activeSubpage !== 'intro-page') {
-      const activeLink = document.querySelector(`[data-subpage="${activeSubpage}"]`);
+      // Find the link in the sidebar navigation (not content area links)
+      const activeLink = document.querySelector(`.accordion-body [data-subpage="${activeSubpage}"]`);
       if (activeLink) {
         activeLink.classList.add('active');
-        
+
         // Expand parent accordion
-        const accordionButton = activeLink.closest('.accordion-item').querySelector('.accordion-button');
-        if (accordionButton && accordionButton.classList.contains('collapsed')) {
-          accordionButton.click();
+        const accordionItem = activeLink.closest('.accordion-item');
+        if (accordionItem) {
+          const accordionButton = accordionItem.querySelector('.accordion-button');
+          if (accordionButton && accordionButton.classList.contains('collapsed')) {
+            accordionButton.click();
+          }
         }
       }
     }
@@ -488,16 +508,18 @@ class SourcebookDashboard {
   }
   
   updateUrl() {
+    console.log('updateUrl called, currentSubpage:', this.currentSubpage);
     const params = new URLSearchParams();
     params.set('geo', this.geoParams.level);
-    
+
     if (this.geoParams.level === 'cbsa' && this.geoParams.cbsa) {
       params.set('cbsa', this.geoParams.cbsa);
     } else if (this.geoParams.level === 'locality' && this.geoParams.locality) {
       params.set('locality', this.geoParams.locality);
     }
-    
+
     const newUrl = `${window.location.pathname}?${params.toString()}#${this.currentSubpage}`;
+    console.log('Pushing new URL:', newUrl);
     window.history.pushState(null, '', newUrl);
   }
   
@@ -640,3 +662,5 @@ window.addEventListener('orientationchange', () => {
     window.sourcebookDashboard.closeSidebarOnMobile();
   }
 });
+
+} // End of SourcebookDashboard undefined check

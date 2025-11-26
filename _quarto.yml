@@ -13,7 +13,6 @@ format:
     expandable: false
     css:
       - www/dashboard.css
-      - www/layout-fix.css
     favicon: "www/favicon-32x32.png"
     include-in-header:
       - text: |
